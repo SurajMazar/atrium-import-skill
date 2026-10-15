@@ -1,0 +1,101 @@
+{
+  "name": "Rosewood Blush",
+  "colorScheme": "light",
+  "colors": {
+    "primary": "#6F4A47",
+    "primaryContrast": "#FBF7F3",
+    "secondary": "#B08D57",
+    "accent": "#C9A27A",
+    "background": "#FBF7F3",
+    "surface": "#F3EAE3",
+    "surfaceAlt": "#EADDD3",
+    "text": "#2D2322",
+    "muted": "#7A6A66",
+    "border": "#E2D3C8",
+    "inverse": "#2B201F",
+    "inverseText": "#F6EEE8",
+    "success": "#2F6B4F",
+    "warning": "#A86B1A",
+    "danger": "#A23B2E"
+  },
+  "typography": {
+    "heading": {
+      "family": "Bodoni Moda",
+      "source": "google",
+      "weights": [
+        400,
+        500
+      ],
+      "italic": true,
+      "fallback": "Georgia, serif"
+    },
+    "body": {
+      "family": "Nunito Sans",
+      "source": "google",
+      "weights": [
+        400,
+        600
+      ],
+      "italic": false,
+      "fallback": "system-ui, sans-serif"
+    },
+    "accent": {
+      "family": "Pinyon Script",
+      "source": "google",
+      "weights": [
+        400
+      ],
+      "italic": false,
+      "fallback": "cursive"
+    },
+    "baseSize": 17,
+    "scale": 1.3,
+    "headingWeight": 400,
+    "bodyWeight": 400,
+    "headingLineHeight": 1.08,
+    "bodyLineHeight": 1.6,
+    "headingLetterSpacing": "-0.01em",
+    "headingTransform": "none",
+    "eyebrowLetterSpacing": "0.16em"
+  },
+  "spacing": {
+    "unit": 4,
+    "sectionY": "airy"
+  },
+  "radius": {
+    "none": "0",
+    "sm": "2px",
+    "md": "4px",
+    "lg": "8px",
+    "xl": "14px",
+    "full": "9999px"
+  },
+  "shadows": {
+    "sm": "0 1px 2px rgb(0 0 0 / 0.05)",
+    "md": "0 6px 20px -8px rgb(0 0 0 / 0.18)",
+    "lg": "0 24px 60px -24px rgb(0 0 0 / 0.28)"
+  },
+  "borders": {
+    "width": "1px",
+    "style": "solid"
+  },
+  "containerWidths": {
+    "narrow": "46rem",
+    "default": "76rem",
+    "wide": "90rem",
+    "full": "100%"
+  },
+  "buttons": {
+    "radius": "0",
+    "textTransform": "uppercase",
+    "letterSpacing": "0.18em",
+    "paddingY": "1.1em",
+    "paddingX": "2.2em",
+    "weight": 600
+  },
+  "motion": {
+    "intensity": "moderate",
+    "ease": "power3.out",
+    "duration": 1.1
+  }
+}

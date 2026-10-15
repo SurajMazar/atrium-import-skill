@@ -1,0 +1,35 @@
+{
+  "id": "pg-privacy",
+  "title": "Privacy",
+  "slug": "privacy",
+  "status": "published",
+  "seo": {
+    "title": "Privacy notice — Rosewood Courtyard",
+    "description": "How Rosewood Courtyard collects, uses and protects the details you share when you enquire, book a viewing or sign up for open-day news — and your rights."
+  },
+  "sections": [
+    {
+      "type": "text-section",
+      "variant": "intro",
+      "props": {
+        "eyebrow": "The small print",
+        "heading": "Privacy notice",
+        "headingLevel": "h1",
+        "body": "Rosewood Courtyard Ltd looks after the details you share with us as carefully as we look after the garden. We collect only what we need to plan your event and keep you informed.",
+        "align": "left",
+        "containerWidth": "narrow"
+      }
+    },
+    {
+      "type": "text-section",
+      "variant": "two-column",
+      "props": {
+        "eyebrow": "Your details",
+        "heading": "What we keep, and why",
+        "body": "Inquiry details are used to reply to you and, if you book, to plan your day. We keep booking records for six years for accounting purposes and delete unconverted inquiries after eighteen months.\n\nOpen-day emails are sent only if you ask for them, and every message has a one-click unsubscribe. We never sell or share your details for marketing.\n\nTo access, correct or delete your information, write to {{business.email}}.",
+        "align": "left",
+        "tone": "surface"
+      }
+    }
+  ]
+}

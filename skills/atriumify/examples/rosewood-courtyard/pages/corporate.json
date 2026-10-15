@@ -1,0 +1,323 @@
+{
+  "id": "pg-corporate",
+  "title": "Corporate events",
+  "slug": "corporate",
+  "status": "published",
+  "seo": {
+    "title": "Corporate events & retreats near Bath",
+    "description": "Leadership retreats, launches, client dinners and summer parties at Rosewood Courtyard, a private walled-garden estate near Bath with rooms for 24 guests."
+  },
+  "sections": [
+    {
+      "type": "hero",
+      "variant": "split",
+      "props": {
+        "eyebrow": "Corporate events",
+        "heading": "Off-site, without feeling *off-grid*",
+        "subheading": "Private hire of a walled-garden estate twenty-five minutes from Bath Spa — for retreats, launches and dinners that people remember for the right reasons.",
+        "image": {
+          "src": "https://images.unsplash.com/photo-1531058020387-3be344556be6?w=2400&q=80&auto=format&fit=crop",
+          "alt": "Orangery set for a company presentation beneath arched windows",
+          "width": 2400,
+          "height": 1600
+        },
+        "imageSide": "right",
+        "height": "tall",
+        "buttons": [
+          {
+            "label": "Request a proposal",
+            "link": "/corporate#proposal",
+            "style": "primary"
+          },
+          {
+            "label": "See the spaces",
+            "link": "/venues",
+            "style": "outline"
+          }
+        ],
+        "meta": [
+          {
+            "label": "From Bath Spa",
+            "value": "25 min"
+          },
+          {
+            "label": "Bedrooms",
+            "value": "11 (sleeps 24)"
+          },
+          {
+            "label": "Up to",
+            "value": "400 guests"
+          }
+        ]
+      },
+      "animation": {
+        "preset": "editorial-reveal"
+      }
+    },
+    {
+      "type": "features",
+      "variant": "cards",
+      "props": {
+        "eyebrow": "What we host",
+        "heading": "Gatherings with a *purpose*",
+        "subheading": "Weekdays from September to May are reserved for companies, so you will usually have the estate to yourselves.",
+        "columns": 4,
+        "imageAspect": "3:4",
+        "items": [
+          {
+            "image": {
+              "src": "https://images.unsplash.com/photo-1542744173-8e7e53415bb0?w=2400&q=80&auto=format&fit=crop",
+              "alt": "Leadership team meeting around the Coach House table",
+              "width": 2400,
+              "height": 1600
+            },
+            "eyebrow": "Up to 24 overnight",
+            "title": "Leadership retreats",
+            "text": "Two or three days of focused work in the Coach House, walks on the Mendips and dinners by the fire."
+          },
+          {
+            "image": {
+              "src": "https://images.unsplash.com/photo-1505373877841-8d25f7d46678?w=2400&q=80&auto=format&fit=crop",
+              "alt": "Speaker presenting to guests in the Orangery",
+              "width": 2400,
+              "height": 1714
+            },
+            "eyebrow": "Up to 150 theatre",
+            "title": "Launches & keynotes",
+            "text": "The Orangery takes a stage, screens and full AV, with natural light and the garden as a backdrop."
+          },
+          {
+            "image": {
+              "src": "https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=2400&q=80&auto=format&fit=crop",
+              "alt": "Plated seasonal dish from the estate kitchen",
+              "width": 2400,
+              "height": 1600
+            },
+            "eyebrow": "Up to 140 seated",
+            "title": "Client & awards dinners",
+            "text": "Seasonal tasting menus, wine pairings and a drinks reception among the roses."
+          },
+          {
+            "image": {
+              "src": "https://images.unsplash.com/photo-1527529482837-4698179dc6ce?w=2400&q=80&auto=format&fit=crop",
+              "alt": "Team raising glasses under festoon lights",
+              "width": 2400,
+              "height": 1600
+            },
+            "eyebrow": "Up to 400 guests",
+            "title": "Summer & winter parties",
+            "text": "A marquee on the Lawn, street-food stalls and a band — or mulled wine and carols by the Coach House fire."
+          }
+        ]
+      },
+      "animation": {
+        "preset": "stagger",
+        "target": "children"
+      }
+    },
+    {
+      "type": "venues",
+      "variant": "cards",
+      "props": {
+        "tone": "surface",
+        "eyebrow": "Spaces for business",
+        "heading": "Capacities for meetings and events",
+        "columns": 4,
+        "showTable": true,
+        "items": [
+          {
+            "name": "The Orangery",
+            "size": "310 m² glasshouse",
+            "image": {
+              "src": "https://images.unsplash.com/photo-1540575467063-178a50c2df87?w=2400&q=80&auto=format&fit=crop",
+              "alt": "Audience seated theatre-style in the Orangery",
+              "width": 2400,
+              "height": 1600
+            },
+            "description": "Light-filled plenary space with built-in AV and blackout blinds.",
+            "capacities": [
+              {
+                "layout": "Theatre",
+                "guests": "150"
+              },
+              {
+                "layout": "Cabaret",
+                "guests": "96"
+              },
+              {
+                "layout": "Dinner",
+                "guests": "140"
+              }
+            ],
+            "features": [
+              "85\" screens ×2",
+              "Wireless microphones",
+              "Wi-Fi 1 Gbps"
+            ]
+          },
+          {
+            "name": "The Coach House",
+            "size": "190 m² stone hall",
+            "image": {
+              "src": "https://images.unsplash.com/photo-1582653291997-079a1c04e5a1?w=2400&q=80&auto=format&fit=crop",
+              "alt": "Boardroom set-up in the Coach House",
+              "width": 2400,
+              "height": 1600
+            },
+            "description": "Oak boardroom table, fireplace and breakout lounges upstairs.",
+            "capacities": [
+              {
+                "layout": "Boardroom",
+                "guests": "24"
+              },
+              {
+                "layout": "Theatre",
+                "guests": "100"
+              },
+              {
+                "layout": "Dinner",
+                "guests": "90"
+              }
+            ],
+            "features": [
+              "Boardroom table for 24",
+              "Breakout lounges",
+              "Private bar"
+            ]
+          },
+          {
+            "name": "The Rose Courtyard",
+            "size": "620 m² walled garden",
+            "image": {
+              "src": "https://images.unsplash.com/photo-1551024709-8f23befc6f87?w=2400&q=80&auto=format&fit=crop",
+              "alt": "Cocktails served in the Rose Courtyard",
+              "width": 2400,
+              "height": 1455
+            },
+            "description": "Drinks receptions, team photographs and long summer lunches.",
+            "capacities": [
+              {
+                "layout": "Reception",
+                "guests": "220"
+              },
+              {
+                "layout": "Theatre",
+                "guests": "140"
+              }
+            ],
+            "features": [
+              "Covered loggia",
+              "Festoon lighting"
+            ]
+          },
+          {
+            "name": "The Lawn",
+            "size": "1.2 acres",
+            "image": {
+              "src": "https://images.unsplash.com/photo-1504674900247-0877df9cc836?w=2400&q=80&auto=format&fit=crop",
+              "alt": "Shared plates served at a summer party on the Lawn",
+              "width": 2400,
+              "height": 1600
+            },
+            "description": "Marquee events, team games and summer parties for the whole company.",
+            "capacities": [
+              {
+                "layout": "Theatre",
+                "guests": "300"
+              },
+              {
+                "layout": "Party",
+                "guests": "400"
+              }
+            ],
+            "features": [
+              "Marquee-ready",
+              "Mains power",
+              "Lawn games"
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "type": "stats",
+      "variant": "inline",
+      "props": {
+        "eyebrow": "By the numbers",
+        "heading": "Why teams come back",
+        "align": "center",
+        "columns": 4,
+        "items": [
+          {
+            "value": "140",
+            "label": "corporate events hosted since 2020"
+          },
+          {
+            "value": "25",
+            "suffix": " min",
+            "label": "from Bath Spa station, with transfers arranged"
+          },
+          {
+            "value": "24",
+            "label": "delegates sleep on site in the Coach House"
+          },
+          {
+            "value": "4.9",
+            "suffix": "/5",
+            "label": "average organiser rating"
+          }
+        ]
+      },
+      "animation": {
+        "preset": "fade-up"
+      }
+    },
+    {
+      "type": "form",
+      "variant": "split-with-text",
+      "anchor": "proposal",
+      "props": {
+        "formId": "form-corporate-inquiry",
+        "eyebrow": "Request a proposal",
+        "heading": "Tell us about your *event*",
+        "subheading": "Share your dates, numbers and what you want the day to achieve. Our events manager replies with a tailored proposal within two working days.",
+        "image": {
+          "src": "https://images.unsplash.com/photo-1521737604893-d14cc237f11d?w=2400&q=80&auto=format&fit=crop",
+          "alt": "Team meeting around a long table during a retreat",
+          "width": 2400,
+          "height": 1575
+        },
+        "showContactDetails": true,
+        "submitLabel": "Request a proposal"
+      }
+    },
+    {
+      "type": "cta",
+      "variant": "banner",
+      "props": {
+        "tone": "inverse",
+        "eyebrow": "Prefer to talk?",
+        "heading": "Speak to our events manager",
+        "subheading": "Call {{business.phone}} or email corporate@rosewood.example — we can usually hold a date while you get sign-off.",
+        "image": {
+          "src": "https://images.unsplash.com/photo-1505373877841-8d25f7d46678?w=2400&q=80&auto=format&fit=crop",
+          "alt": "Presentation in the Orangery",
+          "width": 2400,
+          "height": 1714
+        },
+        "buttons": [
+          {
+            "label": "Email the events team",
+            "link": "mailto:corporate@rosewood.example",
+            "style": "primary"
+          },
+          {
+            "label": "Visit the estate",
+            "link": "/enquire#inquiry",
+            "style": "ghost"
+          }
+        ]
+      }
+    }
+  ]
+}

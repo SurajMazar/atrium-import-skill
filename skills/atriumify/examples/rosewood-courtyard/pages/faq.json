@@ -1,0 +1,145 @@
+{
+  "id": "pg-faq",
+  "title": "FAQ",
+  "slug": "faq",
+  "status": "published",
+  "seo": {
+    "title": "Wedding venue FAQs — Rosewood Courtyard",
+    "description": "Answers on ceremonies, catering, curfew, accommodation, suppliers, accessibility and parking at Rosewood Courtyard, a walled-garden wedding venue near Bath.",
+    "structuredData": [
+      {
+        "type": "FAQPage",
+        "auto": true
+      }
+    ]
+  },
+  "sections": [
+    {
+      "type": "text-section",
+      "variant": "intro",
+      "props": {
+        "eyebrow": "FAQ",
+        "heading": "Questions, *answered*",
+        "headingLevel": "h1",
+        "body": "Everything couples usually ask before booking. If your question isn’t here, call us on {{business.phone}} — a real person will pick up.",
+        "align": "left",
+        "spacingBottom": "md"
+      }
+    },
+    {
+      "type": "faq",
+      "variant": "accordion",
+      "anchor": "weddings",
+      "props": {
+        "eyebrow": "Weddings",
+        "heading": "Ceremonies, food and the day itself",
+        "subheading": "The details that shape your wedding day.",
+        "cta": {
+          "label": "See our packages",
+          "link": "/weddings#packages",
+          "style": "link"
+        },
+        "openFirst": true,
+        "items": [
+          {
+            "question": "Are you licensed for civil ceremonies?",
+            "answer": "Yes. The Rose Courtyard, the Orangery and the Coach House are licensed for civil ceremonies and civil partnerships. The Lawn can host blessings and celebrant-led ceremonies."
+          },
+          {
+            "question": "Can we hold a religious ceremony here?",
+            "answer": "Legal religious ceremonies must take place in a registered place of worship, but many couples marry at St Andrew’s in the village and join us for a blessing in the garden."
+          },
+          {
+            "question": "Do you have in-house catering?",
+            "answer": "Yes, and only in-house. Our head chef cooks everything on site, with produce from the walled garden and growers within twenty miles. Dietary needs are handled with care."
+          },
+          {
+            "question": "What time do celebrations finish?",
+            "answer": "Amplified music ends at 11pm and carriages are at 11.30pm, out of respect for our neighbours. Guests staying in the Coach House are welcome to continue quietly by the fire."
+          },
+          {
+            "question": "Can we choose our own suppliers?",
+            "answer": "Of course — florists, photographers, musicians and stylists are all your choice. We will share a list of people who know the estate well if it helps."
+          },
+          {
+            "question": "How many weddings do you host each year?",
+            "answer": "No more than ninety, and only one per day, so you will always have exclusive use of the estate."
+          }
+        ]
+      }
+    },
+    {
+      "type": "faq",
+      "variant": "accordion",
+      "anchor": "practicalities",
+      "props": {
+        "tone": "surface",
+        "eyebrow": "Practicalities",
+        "heading": "Getting here, staying over and the small print",
+        "subheading": "Travel, rooms, access and payments.",
+        "cta": {
+          "label": "Ask us anything",
+          "link": "/enquire#inquiry",
+          "style": "link"
+        },
+        "items": [
+          {
+            "question": "Where exactly are you?",
+            "answer": "In the Chew Valley, about 25 minutes from Bath Spa station and 30 minutes from Bristol Airport. Full directions arrive with your booking."
+          },
+          {
+            "question": "How many guests can stay overnight?",
+            "answer": "Twenty-four, in eleven bedrooms above the Coach House. We can recommend four inns and hotels within ten minutes for everyone else."
+          },
+          {
+            "question": "Is there parking?",
+            "answer": "Space for 80 cars on a gravel field behind the Coach House, with a lit path to the garden. Taxis can be pre-booked for 11.30pm."
+          },
+          {
+            "question": "Is the estate accessible?",
+            "answer": "Paths are level throughout and every space is step-free at ground level. One Coach House bedroom is fully accessible."
+          },
+          {
+            "question": "What happens if it rains?",
+            "answer": "Every outdoor ceremony has an indoor twin. We make the call with you at 10am on the day and the team resets in under an hour."
+          },
+          {
+            "question": "What are the payment terms?",
+            "answer": "A 25% deposit secures your date, with the balance due eight weeks before. Payment plans are available, and dates can be moved once free of charge."
+          }
+        ]
+      }
+    },
+    {
+      "type": "cta",
+      "variant": "centered",
+      "props": {
+        "eyebrow": "Still wondering?",
+        "heading": "Come and ask in *person*",
+        "subheading": "A private viewing takes about an hour, with tea in the Orangery afterwards.",
+        "image": {
+          "src": "https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=2400&q=80&auto=format&fit=crop",
+          "alt": "Seasonal dish from the Rosewood kitchen",
+          "width": 2400,
+          "height": 1600
+        },
+        "tone": "primary",
+        "buttons": [
+          {
+            "label": "Book a viewing",
+            "link": "/enquire#inquiry",
+            "style": "primary"
+          },
+          {
+            "label": "See the spaces",
+            "link": "/venues",
+            "style": "outline"
+          }
+        ]
+      },
+      "animation": {
+        "preset": "fade-up"
+      }
+    }
+  ]
+}

@@ -1,0 +1,189 @@
+{
+  "id": "pg-testimonials",
+  "title": "Testimonials",
+  "slug": "testimonials",
+  "status": "published",
+  "seo": {
+    "title": "Kind words — Reviews of Rosewood Courtyard",
+    "description": "Read reviews from couples and companies who have celebrated at Rosewood Courtyard, rated 4.9 out of 5 across more than two hundred weddings and events."
+  },
+  "sections": [
+    {
+      "type": "text-section",
+      "variant": "intro",
+      "props": {
+        "eyebrow": "Kind words",
+        "heading": "What our couples *remember*",
+        "headingLevel": "h1",
+        "body": "We ask every couple for honest feedback a month after their wedding. Here is a little of what they have told us — unedited, apart from the occasional exclamation mark.",
+        "align": "center",
+        "containerWidth": "narrow"
+      },
+      "animation": {
+        "preset": "text-reveal"
+      }
+    },
+    {
+      "type": "testimonials",
+      "variant": "grid",
+      "props": {
+        "eyebrow": "Reviews",
+        "heading": "Weddings, elopements and gatherings",
+        "columns": 3,
+        "showRating": true,
+        "items": [
+          {
+            "quote": "We walked into the courtyard on a grey February afternoon and still knew within a minute. In June, with every rose out, it was beyond anything we imagined.",
+            "author": "Imogen & Theo",
+            "role": "Married June 2026 · 120 guests",
+            "rating": 5,
+            "source": "Google"
+          },
+          {
+            "quote": "Clara, our coordinator, answered every one of our 214 emails with the same patience. On the day we didn’t make a single decision.",
+            "author": "Priya & Sam",
+            "role": "Married September 2025 · Orangery",
+            "rating": 5,
+            "source": "Hitched"
+          },
+          {
+            "quote": "The food was the thing our guests still talk about — the lamb, the late-night toasties, the strawberries from the walled garden.",
+            "author": "Rosa & Daniel",
+            "role": "Married July 2026 · Lawn marquee, 260 guests",
+            "rating": 5,
+            "source": "Google"
+          },
+          {
+            "quote": "Having everyone stay in the Coach House turned a wedding into a whole weekend. Breakfast the morning after was our favourite meal.",
+            "author": "Hannah & Joe",
+            "role": "Married May 2026 · Coach House",
+            "rating": 5,
+            "source": "Hitched"
+          },
+          {
+            "quote": "We eloped with twelve people and it never once felt small. Just intimate, and entirely ours.",
+            "author": "Ama & Lewis",
+            "role": "Elopement, April 2026",
+            "rating": 5,
+            "source": "Instagram"
+          },
+          {
+            "quote": "Our leadership retreat needed quiet, good coffee and no distractions. Rosewood gave us all three, plus a dinner the team still mentions.",
+            "author": "Felicity Grant",
+            "role": "Chief People Officer, Halden & Co.",
+            "rating": 5,
+            "source": "Google"
+          },
+          {
+            "quote": "Thirty years married and we wanted to do it properly this time. The Orangery at dusk, our children making speeches — perfect.",
+            "author": "Margaret & Alan",
+            "role": "Ruby anniversary, August 2026",
+            "rating": 5,
+            "source": "Google"
+          }
+        ]
+      },
+      "animation": {
+        "preset": "stagger",
+        "target": "children"
+      }
+    },
+    {
+      "type": "stats",
+      "variant": "cards",
+      "props": {
+        "tone": "surface",
+        "eyebrow": "Ratings",
+        "heading": "Across 212 independent reviews",
+        "align": "center",
+        "columns": 4,
+        "items": [
+          {
+            "value": "4.9",
+            "suffix": "/5",
+            "label": "average on Google",
+            "description": "148 reviews"
+          },
+          {
+            "value": "5.0",
+            "suffix": "/5",
+            "label": "average on Hitched",
+            "description": "64 reviews"
+          },
+          {
+            "value": "98",
+            "suffix": "%",
+            "label": "of couples would recommend us"
+          },
+          {
+            "value": "2025",
+            "label": "Regional Venue of the Year, Westward Weddings Awards"
+          }
+        ]
+      }
+    },
+    {
+      "type": "logo-cloud",
+      "variant": "grid",
+      "props": {
+        "eyebrow": "As featured in",
+        "align": "center",
+        "columns": 6,
+        "logos": [
+          {
+            "name": "Petal & Vow"
+          },
+          {
+            "name": "The Aisle Edit"
+          },
+          {
+            "name": "Linen & Lace"
+          },
+          {
+            "name": "Westward Weddings"
+          },
+          {
+            "name": "Hollyhock Journal"
+          },
+          {
+            "name": "The Long Table"
+          }
+        ]
+      },
+      "animation": {
+        "preset": "fade"
+      }
+    },
+    {
+      "type": "cta",
+      "variant": "image-background",
+      "props": {
+        "eyebrow": "Your turn",
+        "heading": "We’d love to host *you*",
+        "subheading": "Book a private viewing and meet the team behind the reviews.",
+        "image": {
+          "src": "https://images.unsplash.com/photo-1517457373958-b7bdd4587205?w=2400&q=80&auto=format&fit=crop",
+          "alt": "Wedding guests mingling under string lights",
+          "width": 2400,
+          "height": 1602
+        },
+        "overlayOpacity": 0.45,
+        "buttons": [
+          {
+            "label": "Book a viewing",
+            "link": "/enquire#inquiry",
+            "style": "primary"
+          },
+          {
+            "label": "Call {{business.phone}}",
+            "link": "tel:+441275555014",
+            "style": "ghost"
+          }
+        ]
+      },
+      "animation": {
+        "preset": "cinematic-reveal"
+      }
+    }
+  ]
+}

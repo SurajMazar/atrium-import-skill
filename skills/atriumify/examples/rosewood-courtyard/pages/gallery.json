@@ -1,0 +1,182 @@
+{
+  "id": "pg-gallery",
+  "title": "Gallery",
+  "slug": "gallery",
+  "status": "published",
+  "seo": {
+    "title": "Gallery — Weddings at Rosewood Courtyard",
+    "description": "Photographs of weddings and celebrations at Rosewood Courtyard: ceremonies in the rose garden, dinners in the Orangery and evenings beneath the festoon lights."
+  },
+  "sections": [
+    {
+      "type": "hero",
+      "variant": "minimal",
+      "props": {
+        "eyebrow": "Gallery",
+        "heading": "A garden that changes with every *season*",
+        "subheading": "Real weddings and celebrations, photographed by the couples’ own photographers and shared with their kind permission.",
+        "image": {
+          "src": "https://images.unsplash.com/photo-1487530811176-3780de880c2d?w=2400&q=80&auto=format&fit=crop",
+          "alt": "Roses and wildflowers from the walled garden",
+          "width": 2400,
+          "height": 2400
+        },
+        "height": "auto",
+        "buttons": [
+          {
+            "label": "Book a viewing",
+            "link": "/enquire#inquiry",
+            "style": "primary"
+          }
+        ]
+      },
+      "animation": {
+        "preset": "editorial-reveal"
+      }
+    },
+    {
+      "type": "gallery",
+      "variant": "editorial",
+      "props": {
+        "eyebrow": "Summer",
+        "heading": "June to August, in full *bloom*",
+        "columns": 3,
+        "gap": "md",
+        "aspect": "4:5",
+        "lightbox": true,
+        "showCaptions": false,
+        "images": [
+          {
+            "src": "https://images.unsplash.com/photo-1525258946800-98cfd641d0de?w=2400&q=80&auto=format&fit=crop",
+            "alt": "Peach rose bouquet",
+            "width": 2400,
+            "height": 3600
+          },
+          {
+            "src": "https://images.unsplash.com/photo-1523438885200-e635ba2c371e?w=2400&q=80&auto=format&fit=crop",
+            "alt": "Flower-dressed garden pavilion",
+            "width": 2400,
+            "height": 3600
+          },
+          {
+            "src": "https://images.unsplash.com/photo-1530023367847-a683933f4172?w=2400&q=80&auto=format&fit=crop",
+            "alt": "Long table dressed with red napkins",
+            "width": 2400,
+            "height": 3600
+          },
+          {
+            "src": "https://images.unsplash.com/photo-1478146059778-26028b07395a?w=2400&q=80&auto=format&fit=crop",
+            "alt": "Dessert table against brick wall",
+            "width": 2400,
+            "height": 1561
+          },
+          {
+            "src": "https://images.unsplash.com/photo-1522673607200-164d1b6ce486?w=2400&q=80&auto=format&fit=crop",
+            "alt": "Garlanded chairs on the lawn",
+            "width": 2400,
+            "height": 1600
+          },
+          {
+            "src": "https://images.unsplash.com/photo-1553361371-9b22f78e8b1d?w=2400&q=80&auto=format&fit=crop",
+            "alt": "Red wine poured into a glass",
+            "width": 2400,
+            "height": 3598
+          }
+        ]
+      },
+      "animation": {
+        "preset": "stagger",
+        "target": "children"
+      }
+    },
+    {
+      "type": "carousel",
+      "variant": "full",
+      "props": {
+        "tone": "inverse",
+        "eyebrow": "Evenings",
+        "heading": "After the *sun* goes down",
+        "aspect": "16:9",
+        "autoplay": true,
+        "interval": 6,
+        "slides": [
+          {
+            "image": {
+              "src": "https://images.unsplash.com/photo-1532712938310-34cb3982ef74?w=2400&q=80&auto=format&fit=crop",
+              "alt": "Couple walking through misty hills at dusk",
+              "width": 2400,
+              "height": 1600
+            },
+            "eyebrow": "Golden hour",
+            "title": "A walk above the valley",
+            "text": "Twenty minutes for portraits, while guests find their seats."
+          },
+          {
+            "image": {
+              "src": "https://images.unsplash.com/photo-1519741497674-611481863552?w=2400&q=80&auto=format&fit=crop",
+              "alt": "Bride in warm evening light",
+              "width": 2400,
+              "height": 1600
+            },
+            "eyebrow": "Late light",
+            "title": "The courtyard at eight",
+            "text": "In June the sun sets behind the west wall just before nine."
+          },
+          {
+            "image": {
+              "src": "https://images.unsplash.com/photo-1528605248644-14dd04022da1?w=2400&q=80&auto=format&fit=crop",
+              "alt": "Friends sharing dinner at a long table",
+              "width": 2400,
+              "height": 1600
+            },
+            "eyebrow": "Dinner",
+            "title": "Long tables, longer speeches",
+            "text": "The Orangery seats 140 beneath the glass."
+          },
+          {
+            "image": {
+              "src": "https://images.unsplash.com/photo-1470337458703-46ad1756a187?w=2400&q=80&auto=format&fit=crop",
+              "alt": "Bartender pouring a cocktail",
+              "width": 2400,
+              "height": 1603
+            },
+            "eyebrow": "The bar",
+            "title": "A drink named after you",
+            "text": "Our bar team writes a cocktail for every couple."
+          }
+        ]
+      }
+    },
+    {
+      "type": "cta",
+      "variant": "centered",
+      "props": {
+        "eyebrow": "Picture yourselves here",
+        "heading": "The photographs are lovely. The garden is *better*.",
+        "subheading": "Visit on an open day or book a private viewing, Wednesday to Sunday.",
+        "image": {
+          "src": "https://images.unsplash.com/photo-1514933651103-005eec06c04b?w=2400&q=80&auto=format&fit=crop",
+          "alt": "Warmly lit Coach House bar",
+          "width": 2400,
+          "height": 1800
+        },
+        "tone": "surface",
+        "buttons": [
+          {
+            "label": "Book a viewing",
+            "link": "/enquire#inquiry",
+            "style": "primary"
+          },
+          {
+            "label": "See the spaces",
+            "link": "/venues",
+            "style": "outline"
+          }
+        ]
+      },
+      "animation": {
+        "preset": "fade-up"
+      }
+    }
+  ]
+}

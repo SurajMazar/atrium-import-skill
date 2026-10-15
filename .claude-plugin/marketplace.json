@@ -1,0 +1,11 @@
+{
+  "name": "atrium-import-skill",
+  "owner": { "name": "Suraj Thapa" },
+  "plugins": [
+    {
+      "name": "atriumify",
+      "source": "./",
+      "description": "Atriumify any website project into a validated, compressed Atrium site-import zip with all its media."
+    }
+  ]
+}

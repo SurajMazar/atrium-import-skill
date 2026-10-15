@@ -1,0 +1,294 @@
+{
+  "bundle": {
+    "format": "atrium-site-bundle",
+    "version": 1,
+    "schemaVersion": 1,
+    "exportedAt": "2026-01-01T00:00:00.000Z",
+    "generator": "@atrium/exporter",
+    "website": {
+      "name": "Rosewood Courtyard",
+      "slug": "rosewood"
+    },
+    "pages": [
+      "pages/_home.json",
+      "pages/venues.json",
+      "pages/weddings.json",
+      "pages/corporate.json",
+      "pages/gallery.json",
+      "pages/testimonials.json",
+      "pages/faq.json",
+      "pages/enquire.json",
+      "pages/privacy.json"
+    ],
+    "collections": [],
+    "forms": [
+      "forms/wedding-inquiry.json",
+      "forms/corporate-inquiry.json",
+      "forms/open-days.json"
+    ]
+  },
+  "schemaVersion": 1,
+  "settings": {
+    "name": "Rosewood Courtyard",
+    "business": {
+      "name": "Rosewood Courtyard",
+      "legalName": "Rosewood Courtyard Ltd",
+      "type": "EventVenue",
+      "tagline": "A walled rose garden for weddings and gatherings, near Bath.",
+      "description": "Rosewood Courtyard is a restored 1860s walled-garden estate in the Chew Valley near Bath — a rose courtyard, a glass Orangery, a stone Coach House and a sweeping lawn for weddings and events.",
+      "phone": "+44 1275 555 014",
+      "email": "weddings@rosewood.example",
+      "address": {
+        "street": "Hollow Lane",
+        "locality": "Chew Magna",
+        "region": "Somerset",
+        "postalCode": "BS40 8QT",
+        "country": "United Kingdom",
+        "formatted": "Rosewood Courtyard, Hollow Lane, Chew Magna, Somerset BS40 8QT, United Kingdom"
+      },
+      "geo": {
+        "lat": 51.3664,
+        "lng": -2.6093
+      },
+      "openingHours": [
+        {
+          "days": [
+            "wed",
+            "thu",
+            "fri",
+            "sat",
+            "sun"
+          ],
+          "opens": "10:00",
+          "closes": "17:00",
+          "label": "Viewings by appointment"
+        }
+      ],
+      "contactPerson": "Clara Whitcombe, Head of Weddings",
+      "priceRange": "££££",
+      "foundedYear": 2019
+    },
+    "social": [
+      {
+        "id": "social-instagram",
+        "network": "instagram",
+        "url": "https://www.instagram.com/rosewoodcourtyard.example",
+        "visible": true,
+        "newTab": true
+      },
+      {
+        "id": "social-pinterest",
+        "network": "pinterest",
+        "url": "https://www.pinterest.com/rosewoodcourtyard_example",
+        "visible": true,
+        "newTab": true
+      },
+      {
+        "id": "social-facebook",
+        "network": "facebook",
+        "url": "https://www.facebook.com/rosewoodcourtyard.example",
+        "visible": true,
+        "newTab": true
+      }
+    ],
+    "branding": {
+      "wordmark": "Rosewood Courtyard"
+    },
+    "seo": {
+      "siteTitle": "Rosewood Courtyard",
+      "titleTemplate": "%s · Rosewood Courtyard",
+      "description": "Rosewood Courtyard is a restored 1860s walled-garden estate in the Chew Valley near Bath — a rose courtyard, a glass Orangery, a stone Coach House and a sweeping lawn for weddings and events.",
+      "ogImage": "https://images.unsplash.com/photo-1550005809-91ad75fb315f?w=1200&q=80&auto=format&fit=crop",
+      "robots": {
+        "index": true,
+        "follow": true
+      },
+      "canonicalBase": "https://rosewood.example",
+      "structuredData": [
+        {
+          "type": "EventVenue",
+          "auto": true
+        },
+        {
+          "type": "WebSite",
+          "auto": true
+        }
+      ],
+      "verification": {}
+    },
+    "localization": {
+      "defaultLocale": "en",
+      "locales": [
+        "en"
+      ],
+      "strategy": "prefix-except-default"
+    },
+    "scripts": [],
+    "cookieConsent": {
+      "enabled": true,
+      "title": "A note on cookies",
+      "message": "We use essential cookies to run this site and, if you agree, anonymous analytics to improve it.",
+      "policyUrl": "/privacy",
+      "categories": [
+        "necessary",
+        "analytics"
+      ],
+      "position": "bottom-left"
+    },
+    "analytics": {
+      "builtIn": true
+    },
+    "variables": {
+      "curfew": "11.30pm",
+      "season": "2027"
+    }
+  },
+  "navigation": {
+    "menus": {
+      "primary": [
+        {
+          "id": "nav-venues",
+          "label": "Venues",
+          "link": "/venues"
+        },
+        {
+          "id": "nav-weddings",
+          "label": "Weddings",
+          "link": "/weddings"
+        },
+        {
+          "id": "nav-corporate",
+          "label": "Corporate",
+          "link": "/corporate"
+        },
+        {
+          "id": "nav-gallery",
+          "label": "Gallery",
+          "link": "/gallery"
+        },
+        {
+          "id": "nav-testimonials",
+          "label": "Kind words",
+          "link": "/testimonials"
+        },
+        {
+          "id": "nav-faq",
+          "label": "FAQ",
+          "link": "/faq"
+        }
+      ],
+      "footer-explore": [
+        {
+          "id": "ft-venues",
+          "label": "The spaces",
+          "link": "/venues"
+        },
+        {
+          "id": "ft-stay",
+          "label": "Stay the night",
+          "link": "/venues#stay"
+        },
+        {
+          "id": "ft-weddings",
+          "label": "Weddings",
+          "link": "/weddings"
+        },
+        {
+          "id": "ft-packages",
+          "label": "Packages",
+          "link": "/weddings#packages"
+        },
+        {
+          "id": "ft-corporate",
+          "label": "Corporate events",
+          "link": "/corporate"
+        }
+      ],
+      "footer-plan": [
+        {
+          "id": "ft-gallery",
+          "label": "Gallery",
+          "link": "/gallery"
+        },
+        {
+          "id": "ft-testimonials",
+          "label": "Kind words",
+          "link": "/testimonials"
+        },
+        {
+          "id": "ft-faq",
+          "label": "FAQ",
+          "link": "/faq"
+        },
+        {
+          "id": "ft-open-days",
+          "label": "Open days",
+          "link": "/#open-days"
+        },
+        {
+          "id": "ft-enquire",
+          "label": "Enquire",
+          "link": "/enquire#inquiry"
+        }
+      ],
+      "legal": [
+        {
+          "id": "legal-privacy",
+          "label": "Privacy & cookies",
+          "link": "/privacy"
+        }
+      ]
+    }
+  },
+  "header": {
+    "type": "site-header",
+    "variant": "centered",
+    "props": {
+      "menu": "primary",
+      "cta": {
+        "label": "Book a viewing",
+        "link": "/enquire#inquiry",
+        "style": "primary"
+      },
+      "sticky": true,
+      "transparentOnHero": true,
+      "showSocial": true,
+      "showContact": false,
+      "width": "wide"
+    }
+  },
+  "footer": {
+    "type": "site-footer",
+    "variant": "statement",
+    "props": {
+      "statement": "A walled rose garden, a glass Orangery and one wedding at a time.",
+      "description": "Rosewood Courtyard · Chew Valley, near Bath. Viewings Wednesday to Sunday, 10am – 5pm.",
+      "cta": {
+        "label": "Book a viewing",
+        "link": "/enquire#inquiry",
+        "style": "primary"
+      },
+      "columns": [
+        {
+          "title": "Explore",
+          "menu": "footer-explore",
+          "links": []
+        },
+        {
+          "title": "Plan",
+          "menu": "footer-plan",
+          "links": []
+        }
+      ],
+      "showContact": true,
+      "showSocial": true,
+      "showNewsletter": true,
+      "newsletterFormId": "form-open-days",
+      "newsletterHeading": "Open days & seasonal letters",
+      "showMap": false,
+      "legalMenu": "legal",
+      "copyright": "© {{year}} Rosewood Courtyard Ltd. Licensed for civil ceremonies.",
+      "tone": "inverse"
+    }
+  }
+}

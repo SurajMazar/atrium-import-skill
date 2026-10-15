@@ -1,0 +1,8 @@
+{
+  "name": "atriumify",
+  "version": "0.1.0",
+  "description": "Atriumify any website project (HTML, React, Next.js, Vue, Svelte, Astro, Tailwind…) into a validated, compressed Atrium site-import zip with all its media.",
+  "author": { "name": "Suraj Thapa" },
+  "repository": "https://github.com/SurajMazar/atrium-import-skill",
+  "keywords": ["atrium", "website", "import", "migration", "skill"]
+}

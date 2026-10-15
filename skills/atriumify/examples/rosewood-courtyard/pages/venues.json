@@ -1,0 +1,437 @@
+{
+  "id": "pg-venues",
+  "title": "Venues",
+  "slug": "venues",
+  "status": "published",
+  "layout": {
+    "header": "transparent",
+    "footer": "default"
+  },
+  "seo": {
+    "title": "The spaces — Courtyard, Orangery, Coach House",
+    "description": "Explore the Rose Courtyard, the glass Orangery, the stone Coach House and the Lawn at Rosewood Courtyard, with capacities for ceremonies, dinners and parties."
+  },
+  "sections": [
+    {
+      "type": "hero",
+      "variant": "fullscreen-image",
+      "props": {
+        "eyebrow": "The spaces",
+        "heading": "Brick, glass, stone and *sky*",
+        "subheading": "Four very different spaces within a five-minute stroll — so your ceremony, dinner and dancing can each have their own setting.",
+        "image": {
+          "src": "https://images.unsplash.com/photo-1585320806297-9794b3e4eeae?w=2400&q=80&auto=format&fit=crop",
+          "alt": "Gravel path between rose beds leading to the Orangery",
+          "width": 2400,
+          "height": 1350
+        },
+        "overlayOpacity": 0.4,
+        "contentPosition": "bottom-left",
+        "height": "tall",
+        "buttons": [
+          {
+            "label": "Book a viewing",
+            "link": "/enquire#inquiry",
+            "style": "primary"
+          }
+        ]
+      },
+      "animation": {
+        "preset": "editorial-reveal"
+      }
+    },
+    {
+      "type": "venues",
+      "variant": "detailed",
+      "anchor": "spaces",
+      "props": {
+        "eyebrow": "In detail",
+        "heading": "Capacities by layout",
+        "subheading": "Figures are maximums for comfortable seating; our coordinators will help you find the right fit for your numbers.",
+        "showTable": true,
+        "columns": 2,
+        "items": [
+          {
+            "name": "The Rose Courtyard",
+            "size": "620 m² walled garden",
+            "description": "The heart of the estate: a walled courtyard of 1860s brick, planted with more than three hundred heritage roses. Ceremonies take place beneath the old espaliered pear, with guests seated along the gravel paths.",
+            "capacities": [
+              {
+                "layout": "Ceremony",
+                "guests": "140"
+              },
+              {
+                "layout": "Cocktail",
+                "guests": "220"
+              },
+              {
+                "layout": "Banquet",
+                "guests": "—"
+              },
+              {
+                "layout": "Theatre",
+                "guests": "140"
+              }
+            ],
+            "features": [
+              "Licensed for ceremonies",
+              "Heritage rose beds",
+              "Festoon lighting",
+              "Covered loggia for rain"
+            ],
+            "image": {
+              "src": "https://images.unsplash.com/photo-1469371670807-013ccf25f16a?w=2400&q=80&auto=format&fit=crop",
+              "alt": "Rose-lined ceremony aisle in the walled courtyard",
+              "width": 2400,
+              "height": 1602
+            },
+            "link": "/enquire#inquiry"
+          },
+          {
+            "name": "The Orangery",
+            "size": "310 m² glasshouse",
+            "description": "A Victorian glasshouse restored pane by pane in 2019, with lime-washed walls, citrus trees in Versailles planters and doors that fold open onto the courtyard on warm evenings.",
+            "capacities": [
+              {
+                "layout": "Ceremony",
+                "guests": "120"
+              },
+              {
+                "layout": "Banquet",
+                "guests": "140"
+              },
+              {
+                "layout": "Cocktail",
+                "guests": "180"
+              },
+              {
+                "layout": "Theatre",
+                "guests": "150"
+              }
+            ],
+            "features": [
+              "Licensed for ceremonies",
+              "Underfloor heating",
+              "Built-in dance floor",
+              "Opens to the courtyard"
+            ],
+            "image": {
+              "src": "https://images.unsplash.com/photo-1519225421980-715cb0215aed?w=2400&q=80&auto=format&fit=crop",
+              "alt": "Candlelit wedding breakfast in the glass Orangery",
+              "width": 2400,
+              "height": 1600
+            },
+            "link": "/enquire#inquiry"
+          },
+          {
+            "name": "The Coach House",
+            "size": "190 m² stone hall",
+            "description": "Bath stone, oak beams and a great open fireplace. The Coach House hosts intimate wedding breakfasts and winter ceremonies, with eleven bedrooms upstairs sleeping twenty-four guests.",
+            "capacities": [
+              {
+                "layout": "Ceremony",
+                "guests": "80"
+              },
+              {
+                "layout": "Banquet",
+                "guests": "90"
+              },
+              {
+                "layout": "Cocktail",
+                "guests": "120"
+              },
+              {
+                "layout": "Theatre",
+                "guests": "100"
+              }
+            ],
+            "features": [
+              "Licensed for ceremonies",
+              "Open fireplace",
+              "Accommodation for 24",
+              "Private bar"
+            ],
+            "image": {
+              "src": "https://images.unsplash.com/photo-1519167758481-83f550bb49b3?w=2400&q=80&auto=format&fit=crop",
+              "alt": "Coach House hall with round tables and chandeliers",
+              "width": 2400,
+              "height": 1550
+            },
+            "link": "/enquire#inquiry"
+          },
+          {
+            "name": "The Lawn",
+            "size": "1.2 acres",
+            "description": "Beyond the garden wall, a level lawn framed by old oaks and the Mendip Hills. Our preferred marquee partners pitch here for the largest celebrations, with power, lighting and lavatories already in place.",
+            "capacities": [
+              {
+                "layout": "Ceremony",
+                "guests": "250"
+              },
+              {
+                "layout": "Banquet",
+                "guests": "400"
+              },
+              {
+                "layout": "Cocktail",
+                "guests": "400"
+              },
+              {
+                "layout": "Theatre",
+                "guests": "300"
+              }
+            ],
+            "features": [
+              "Marquee-ready",
+              "Views to the Mendips",
+              "Lawn games",
+              "Generator-free mains power"
+            ],
+            "image": {
+              "src": "https://images.unsplash.com/photo-1464366400600-7168b8af9bc3?w=2400&q=80&auto=format&fit=crop",
+              "alt": "Marquee on the Lawn dressed for a summer wedding",
+              "width": 2400,
+              "height": 1602
+            },
+            "link": "/enquire#inquiry"
+          }
+        ]
+      },
+      "animation": {
+        "preset": "stagger",
+        "target": "children"
+      }
+    },
+    {
+      "type": "comparison-table",
+      "props": {
+        "tone": "surface",
+        "eyebrow": "Side by side",
+        "heading": "Which space suits your *day*?",
+        "columns": [
+          {
+            "label": "Rose Courtyard"
+          },
+          {
+            "label": "Orangery",
+            "highlighted": true
+          },
+          {
+            "label": "Coach House"
+          },
+          {
+            "label": "The Lawn"
+          }
+        ],
+        "rows": [
+          {
+            "label": "Size",
+            "values": [
+              "620 m²",
+              "310 m²",
+              "190 m²",
+              "1.2 acres"
+            ]
+          },
+          {
+            "label": "Ceremony",
+            "values": [
+              "140",
+              "120",
+              "80",
+              "250"
+            ]
+          },
+          {
+            "label": "Seated dinner",
+            "values": [
+              "—",
+              "140",
+              "90",
+              "400 (marquee)"
+            ]
+          },
+          {
+            "label": "Drinks reception",
+            "values": [
+              "220",
+              "180",
+              "120",
+              "400"
+            ]
+          },
+          {
+            "label": "Theatre style",
+            "values": [
+              "140",
+              "150",
+              "100",
+              "300"
+            ]
+          },
+          {
+            "label": "Licensed for ceremonies",
+            "values": [
+              "Yes",
+              "Yes",
+              "Yes",
+              "Blessings only"
+            ]
+          },
+          {
+            "label": "Wet-weather plan",
+            "values": [
+              "Covered loggia",
+              "Indoors",
+              "Indoors",
+              "Marquee"
+            ]
+          },
+          {
+            "label": "Step-free access",
+            "values": [
+              "Yes",
+              "Yes",
+              "Ground floor",
+              "Yes"
+            ]
+          }
+        ],
+        "caption": "Capacities assume round tables of ten for dinners and include a dance floor where noted."
+      }
+    },
+    {
+      "type": "content-split",
+      "variant": "standard",
+      "anchor": "stay",
+      "props": {
+        "eyebrow": "Stay the night",
+        "heading": "Eleven bedrooms above the *Coach House*",
+        "body": "Twenty-four of your guests can sleep on site, in rooms finished with lime plaster, wool throws and deep baths. The Bridal Loft runs the length of the gable, with a window over the rose garden.\n\nRooms are included with The Courtyard Day and The Grand Celebration, and available on request with every other booking.",
+        "image": {
+          "src": "https://images.unsplash.com/photo-1590490360182-c33d57733427?w=2400&q=80&auto=format&fit=crop",
+          "alt": "Coach House bedroom with a four-poster bed and sofa",
+          "width": 2400,
+          "height": 1800
+        },
+        "secondaryImage": {
+          "src": "https://images.unsplash.com/photo-1591088398332-8a7791972843?w=2400&q=80&auto=format&fit=crop",
+          "alt": "Bridal Loft with a velvet bench and patterned headboard",
+          "width": 2400,
+          "height": 1800
+        },
+        "imageSide": "left",
+        "facts": [
+          {
+            "label": "Bedrooms",
+            "value": "11, sleeping 24"
+          },
+          {
+            "label": "Bridal Loft",
+            "value": "Super-king, roll-top bath"
+          },
+          {
+            "label": "Check-out",
+            "value": "11am the morning after"
+          }
+        ],
+        "buttons": [
+          {
+            "label": "Ask about rooms",
+            "link": "/enquire#inquiry",
+            "style": "link"
+          }
+        ]
+      },
+      "animation": {
+        "preset": "image-mask"
+      }
+    },
+    {
+      "type": "amenities",
+      "variant": "icon-grid",
+      "props": {
+        "eyebrow": "Included",
+        "heading": "Everything in place, so you can *arrive*",
+        "columns": 4,
+        "items": [
+          {
+            "icon": "chef-hat",
+            "title": "In-house kitchen",
+            "text": "Seasonal menus from our head chef, with produce from the walled garden."
+          },
+          {
+            "icon": "wine",
+            "title": "Licensed bar",
+            "text": "English sparkling wine, local cider and a cocktail list written for you."
+          },
+          {
+            "icon": "user-round-check",
+            "title": "Dedicated coordinator",
+            "text": "One person from first viewing to final farewell."
+          },
+          {
+            "icon": "bed-double",
+            "title": "Accommodation for 24",
+            "text": "Eleven bedrooms in the Coach House, including the Bridal Loft."
+          },
+          {
+            "icon": "umbrella",
+            "title": "Wet-weather plan",
+            "text": "Every outdoor ceremony has an indoor twin, ready on the morning."
+          },
+          {
+            "icon": "car",
+            "title": "Parking for 80 cars",
+            "text": "On a gravel field behind the Coach House, with a lit path at night."
+          },
+          {
+            "icon": "accessibility",
+            "title": "Step-free access",
+            "text": "Level paths throughout the garden and an accessible bedroom."
+          },
+          {
+            "icon": "flower-2",
+            "title": "Florals from the beds",
+            "text": "Our gardeners cut roses for your tables in June and July."
+          }
+        ]
+      },
+      "animation": {
+        "preset": "stagger",
+        "target": "children"
+      }
+    },
+    {
+      "type": "cta",
+      "variant": "centered",
+      "props": {
+        "eyebrow": "See it for yourself",
+        "heading": "Every space looks different in *person*",
+        "subheading": "Viewings Wednesday to Sunday, 10am – 5pm. We’ll set a table in the Orangery so you can picture it.",
+        "image": {
+          "src": "https://images.unsplash.com/photo-1551024709-8f23befc6f87?w=2400&q=80&auto=format&fit=crop",
+          "alt": "Signature cocktails on the Orangery bar",
+          "width": 2400,
+          "height": 1455
+        },
+        "tone": "primary",
+        "buttons": [
+          {
+            "label": "Book a viewing",
+            "link": "/enquire#inquiry",
+            "style": "primary"
+          },
+          {
+            "label": "See the spaces",
+            "link": "/venues",
+            "style": "outline"
+          }
+        ]
+      },
+      "animation": {
+        "preset": "fade-up"
+      }
+    }
+  ]
+}

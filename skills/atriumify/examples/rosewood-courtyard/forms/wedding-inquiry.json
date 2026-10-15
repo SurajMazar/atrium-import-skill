@@ -1,0 +1,364 @@
+{
+  "id": "form-wedding-inquiry",
+  "name": "Wedding inquiry",
+  "slug": "wedding-inquiry",
+  "fields": [
+    {
+      "id": "f-partner-one",
+      "type": "text",
+      "name": "partnerOne",
+      "label": "Your name",
+      "required": true,
+      "width": "half"
+    },
+    {
+      "id": "f-partner-two",
+      "type": "text",
+      "name": "partnerTwo",
+      "label": "Your partner’s name",
+      "required": true,
+      "width": "half"
+    },
+    {
+      "id": "f-email",
+      "type": "email",
+      "name": "email",
+      "label": "Email",
+      "required": true,
+      "width": "half"
+    },
+    {
+      "id": "f-phone",
+      "type": "phone",
+      "name": "phone",
+      "label": "Phone",
+      "required": false,
+      "width": "half"
+    },
+    {
+      "id": "f-event-type",
+      "type": "select",
+      "name": "eventType",
+      "label": "What are you celebrating?",
+      "required": true,
+      "width": "full",
+      "options": [
+        {
+          "label": "Wedding",
+          "value": "wedding"
+        },
+        {
+          "label": "Civil partnership",
+          "value": "civil-partnership"
+        },
+        {
+          "label": "Elopement",
+          "value": "elopement"
+        },
+        {
+          "label": "Celebration or anniversary",
+          "value": "celebration"
+        },
+        {
+          "label": "Corporate event",
+          "value": "corporate"
+        }
+      ]
+    },
+    {
+      "id": "f-preferred-date",
+      "type": "date",
+      "name": "preferredDate",
+      "label": "Preferred date",
+      "required": true,
+      "width": "half"
+    },
+    {
+      "id": "f-alternative-date",
+      "type": "date",
+      "name": "alternativeDate",
+      "label": "Alternative date",
+      "required": false,
+      "width": "half",
+      "helpText": "Optional — flexibility often opens up better rates."
+    },
+    {
+      "id": "f-guest-count",
+      "type": "number",
+      "name": "guestCount",
+      "label": "Number of guests",
+      "required": true,
+      "width": "half",
+      "validation": {
+        "min": 2,
+        "max": 400
+      }
+    },
+    {
+      "id": "f-venues",
+      "type": "multiselect",
+      "name": "venues",
+      "label": "Spaces you’re interested in",
+      "required": false,
+      "width": "half",
+      "options": [
+        {
+          "label": "The Rose Courtyard",
+          "value": "rose-courtyard"
+        },
+        {
+          "label": "The Orangery",
+          "value": "orangery"
+        },
+        {
+          "label": "The Coach House",
+          "value": "coach-house"
+        },
+        {
+          "label": "The Lawn",
+          "value": "lawn"
+        }
+      ]
+    },
+    {
+      "id": "f-needs-accommodation",
+      "type": "radio",
+      "name": "needsAccommodation",
+      "label": "Would you like to stay in the Coach House?",
+      "required": true,
+      "width": "half",
+      "options": [
+        {
+          "label": "Yes",
+          "value": "yes"
+        },
+        {
+          "label": "No",
+          "value": "no"
+        }
+      ]
+    },
+    {
+      "id": "f-accommodation-rooms",
+      "type": "number",
+      "name": "accommodationRooms",
+      "label": "How many bedrooms? (up to 11)",
+      "required": true,
+      "width": "half",
+      "validation": {
+        "min": 1,
+        "max": 11
+      },
+      "showIf": {
+        "match": "all",
+        "conditions": [
+          {
+            "field": "needsAccommodation",
+            "op": "eq",
+            "value": "yes"
+          }
+        ]
+      }
+    },
+    {
+      "id": "f-budget",
+      "type": "select",
+      "name": "budget",
+      "label": "Approximate budget",
+      "required": false,
+      "width": "half",
+      "options": [
+        {
+          "label": "Under £10,000",
+          "value": "under-10k"
+        },
+        {
+          "label": "£10,000 – £20,000",
+          "value": "10k-20k"
+        },
+        {
+          "label": "£20,000 – £35,000",
+          "value": "20k-35k"
+        },
+        {
+          "label": "Over £35,000",
+          "value": "over-35k"
+        },
+        {
+          "label": "Not sure yet",
+          "value": "unsure"
+        }
+      ]
+    },
+    {
+      "id": "f-how-heard",
+      "type": "select",
+      "name": "howHeard",
+      "label": "How did you hear about us?",
+      "required": false,
+      "width": "half",
+      "options": [
+        {
+          "label": "Instagram or Pinterest",
+          "value": "social"
+        },
+        {
+          "label": "A friend or guest",
+          "value": "word-of-mouth"
+        },
+        {
+          "label": "Wedding fair or open day",
+          "value": "open-day"
+        },
+        {
+          "label": "Magazine or blog",
+          "value": "press"
+        },
+        {
+          "label": "Search engine",
+          "value": "search"
+        },
+        {
+          "label": "Other",
+          "value": "other"
+        }
+      ]
+    },
+    {
+      "id": "f-message",
+      "type": "textarea",
+      "name": "message",
+      "label": "Tell us about your day",
+      "placeholder": "The feeling you’re after, the season you love, anything we should know.",
+      "required": false,
+      "width": "full",
+      "validation": {
+        "maxLength": 3000
+      }
+    },
+    {
+      "id": "f-consent",
+      "type": "consent",
+      "name": "consent",
+      "label": "I’m happy for Rosewood Courtyard to contact me about this inquiry.",
+      "required": true,
+      "width": "full"
+    }
+  ],
+  "settings": {
+    "submitLabel": "Send our inquiry",
+    "successMessage": "Thank you — your inquiry is with our weddings team. Expect a personal reply, with availability and a brochure, within one working day.",
+    "honeypot": true,
+    "captcha": {
+      "provider": "none",
+      "minScore": 0.5,
+      "action": "submit"
+    },
+    "storeSubmissions": true,
+    "rateLimitPerMinute": 5,
+    "layout": "grid",
+    "consentText": "We will only use your details to plan your event with you."
+  },
+  "rules": [
+    {
+      "id": "rule-wedding-notify",
+      "name": "Notify the weddings team",
+      "enabled": true,
+      "then": [
+        {
+          "type": "email",
+          "to": [
+            "weddings@rosewood.example"
+          ],
+          "replyTo": "{{email}}",
+          "subject": "Wedding inquiry: {{partnerOne}} & {{partnerTwo}} — {{preferredDate}}",
+          "body": "{{partnerOne}} & {{partnerTwo}} ({{email}}, {{phone}})\nCelebrating: {{eventType}}\nPreferred date: {{preferredDate}} (alt. {{alternativeDate}})\nGuests: {{guestCount}}\nSpaces: {{venues}}\nAccommodation: {{needsAccommodation}} ({{accommodationRooms}} rooms)\nBudget: {{budget}}\nHeard via: {{howHeard}}\n\n{{message}}"
+        }
+      ],
+      "otherwise": [],
+      "stopProcessing": false
+    },
+    {
+      "id": "rule-wedding-large",
+      "name": "Large events go to the events team",
+      "enabled": true,
+      "when": {
+        "match": "all",
+        "conditions": [
+          {
+            "field": "guestCount",
+            "op": "gt",
+            "value": 200
+          }
+        ]
+      },
+      "then": [
+        {
+          "type": "email",
+          "to": [
+            "events@rosewood.example"
+          ],
+          "replyTo": "{{email}}",
+          "subject": "Large event ({{guestCount}} guests): {{partnerOne}} & {{partnerTwo}} — {{preferredDate}}",
+          "body": "A celebration for {{guestCount}} guests will need the Lawn and a marquee. Please coordinate with the weddings team.\n\n{{message}}"
+        },
+        {
+          "type": "tag",
+          "tags": [
+            "large-event"
+          ]
+        }
+      ],
+      "otherwise": [],
+      "stopProcessing": false
+    },
+    {
+      "id": "rule-wedding-autoresponder",
+      "name": "Reply to the couple",
+      "enabled": true,
+      "then": [
+        {
+          "type": "autoresponder",
+          "subject": "Your Rosewood Courtyard inquiry",
+          "html": "<p>Dear {{partnerOne}} and {{partnerTwo}},</p><p>Thank you for thinking of Rosewood Courtyard. We are checking availability for {{preferredDate}} and will reply personally within one working day, with our 2027 brochure and a few dates for a private viewing.</p><p>With warm wishes,<br>The Rosewood weddings team</p>",
+          "emailField": "email"
+        }
+      ],
+      "otherwise": [],
+      "stopProcessing": false
+    },
+    {
+      "id": "rule-wedding-corporate",
+      "name": "Corporate inquiries go to the corporate team",
+      "enabled": true,
+      "when": {
+        "match": "all",
+        "conditions": [
+          {
+            "field": "eventType",
+            "op": "eq",
+            "value": "corporate"
+          }
+        ]
+      },
+      "then": [
+        {
+          "type": "email",
+          "to": [
+            "corporate@rosewood.example"
+          ],
+          "replyTo": "{{email}}",
+          "subject": "Corporate inquiry via weddings form — {{preferredDate}}, {{guestCount}} guests"
+        },
+        {
+          "type": "tag",
+          "tags": [
+            "corporate"
+          ]
+        }
+      ],
+      "otherwise": [],
+      "stopProcessing": false
+    }
+  ]
+}

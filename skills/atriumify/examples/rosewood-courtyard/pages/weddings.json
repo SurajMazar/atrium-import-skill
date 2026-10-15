@@ -1,0 +1,374 @@
+{
+  "id": "pg-weddings",
+  "title": "Weddings",
+  "slug": "weddings",
+  "status": "published",
+  "layout": {
+    "header": "transparent",
+    "footer": "default"
+  },
+  "seo": {
+    "title": "Weddings & packages — Rosewood Courtyard",
+    "description": "Wedding packages for the 2027 season at Rosewood Courtyard, from an intimate elopement at £4,800 to a two-night grand celebration, with in-house catering."
+  },
+  "sections": [
+    {
+      "type": "hero",
+      "variant": "fullscreen-image",
+      "props": {
+        "eyebrow": "Weddings",
+        "heading": "One wedding a day, and it is *yours*",
+        "subheading": "Exclusive use of a walled garden, a kitchen that cooks from it, and a coordinator who knows every brick.",
+        "image": {
+          "src": "https://images.unsplash.com/photo-1519741497674-611481863552?w=2400&q=80&auto=format&fit=crop",
+          "alt": "Bride holding flowers in warm evening backlight",
+          "width": 2400,
+          "height": 1600
+        },
+        "overlayOpacity": 0.35,
+        "contentPosition": "bottom-left",
+        "height": "screen",
+        "buttons": [
+          {
+            "label": "Book a viewing",
+            "link": "/enquire#inquiry",
+            "style": "primary"
+          },
+          {
+            "label": "View packages",
+            "link": "/weddings#packages",
+            "style": "ghost"
+          }
+        ]
+      },
+      "animation": {
+        "preset": "cinematic-reveal"
+      }
+    },
+    {
+      "type": "text-section",
+      "variant": "two-column",
+      "props": {
+        "eyebrow": "How we host",
+        "heading": "Unhurried, generous and quietly organised",
+        "body": "We cap the season at ninety weddings so that every couple has the full attention of the team. Your coordinator will meet you at least three times before the day, and stays until the last carriage leaves.\n\nOur kitchen cooks everything on site. Menus change with the garden — asparagus and elderflower in May, heritage tomatoes and peaches in August, venison and quince in October.\n\nWe welcome your own suppliers for flowers, music and photography, and are happy to introduce people we trust.",
+        "align": "left"
+      },
+      "animation": {
+        "preset": "fade-up"
+      }
+    },
+    {
+      "type": "offers",
+      "variant": "cards",
+      "anchor": "packages",
+      "props": {
+        "tone": "surface",
+        "eyebrow": "2027 packages",
+        "heading": "Choose your *starting* point",
+        "subheading": "Prices include VAT, exclusive use, your coordinator and our in-house catering. Everything can be adjusted.",
+        "columns": 3,
+        "imageAspect": "3:2",
+        "items": [
+          {
+            "title": "Intimate Elopement",
+            "image": {
+              "src": "https://images.unsplash.com/photo-1465495976277-4387d4b0b4c6?w=2400&q=80&auto=format&fit=crop",
+              "alt": "Couple’s hands with rings beside a bouquet",
+              "width": 2400,
+              "height": 1600
+            },
+            "badge": "Up to 20 guests",
+            "price": "£4,800",
+            "priceNote": "Monday – Thursday",
+            "description": "A short, beautiful ceremony in the Rose Courtyard, photographs in the garden and a long-table supper in the Orangery.",
+            "inclusions": [
+              "Ceremony in the Rose Courtyard",
+              "Glass of English sparkling wine on arrival",
+              "Three-course supper for up to 20",
+              "Bridal bouquet from the estate beds",
+              "The Bridal Loft for the night"
+            ],
+            "validity": "Valid for the 2027 season, April – October",
+            "cta": {
+              "label": "Check availability",
+              "link": "/enquire#inquiry",
+              "style": "outline"
+            }
+          },
+          {
+            "title": "The Courtyard Day",
+            "image": {
+              "src": "https://images.unsplash.com/photo-1511285560929-80b456fea0bc?w=2400&q=80&auto=format&fit=crop",
+              "alt": "Newlyweds celebrating with guests",
+              "width": 2400,
+              "height": 1602
+            },
+            "badge": "Most loved",
+            "price": "£16,500",
+            "priceNote": "Up to 90 guests, Friday or Sunday",
+            "description": "Ceremony among the roses, drinks on the lawn and a wedding breakfast by the fire in the Coach House — with every bedroom for the night.",
+            "inclusions": [
+              "Ceremony in any licensed space",
+              "Drinks reception with canapés",
+              "Three-course wedding breakfast",
+              "Evening food and late bar until 11pm",
+              "All 11 Coach House bedrooms",
+              "Dedicated coordinator"
+            ],
+            "validity": "Valid for the 2027 season; Saturdays from £19,500",
+            "cta": {
+              "label": "Check availability",
+              "link": "/enquire#inquiry",
+              "style": "primary"
+            }
+          },
+          {
+            "title": "The Grand Celebration",
+            "image": {
+              "src": "https://images.unsplash.com/photo-1511795409834-ef04bbd61622?w=2400&q=80&auto=format&fit=crop",
+              "alt": "Banquet table set with flowers and glassware",
+              "width": 2400,
+              "height": 1602
+            },
+            "badge": "Two nights",
+            "price": "£29,000",
+            "priceNote": "Up to 160 guests",
+            "description": "The whole estate from Friday afternoon to Sunday brunch: welcome supper, the wedding itself and a long, lazy morning after.",
+            "inclusions": [
+              "Friday welcome supper for 40",
+              "Ceremony, reception and dinner in the Orangery",
+              "Evening food, late bar and DJ booth",
+              "Two nights in the Coach House",
+              "Sunday brunch for 60",
+              "Rehearsal with your coordinator"
+            ],
+            "validity": "Valid for the 2027 season; marquee add-on for up to 400",
+            "cta": {
+              "label": "Check availability",
+              "link": "/enquire#inquiry",
+              "style": "outline"
+            }
+          }
+        ]
+      },
+      "animation": {
+        "preset": "stagger",
+        "target": "children"
+      }
+    },
+    {
+      "type": "timeline",
+      "variant": "vertical",
+      "props": {
+        "eyebrow": "The wedding day",
+        "heading": "How a Rosewood day *unfolds*",
+        "subheading": "A typical summer Saturday — every timing can move to suit you.",
+        "items": [
+          {
+            "date": "10:00",
+            "title": "Morning in the Bridal Loft",
+            "text": "Hair, make-up and breakfast brought up from the kitchen while the team dresses the courtyard."
+          },
+          {
+            "date": "14:00",
+            "title": "Ceremony among the roses",
+            "text": "Guests gather on the gravel paths; the registrar stands beneath the old pear tree.",
+            "image": {
+              "src": "https://images.unsplash.com/photo-1515934751635-c81c6bc9a2d8?w=2400&q=80&auto=format&fit=crop",
+              "alt": "Rings resting on roses before the ceremony",
+              "width": 2400,
+              "height": 1600
+            }
+          },
+          {
+            "date": "14:45",
+            "title": "Drinks on the lawn",
+            "text": "English sparkling wine, elderflower spritz and canapés from the garden, with lawn games for the children.",
+            "image": {
+              "src": "https://images.unsplash.com/photo-1470337458703-46ad1756a187?w=2400&q=80&auto=format&fit=crop",
+              "alt": "Bartender pouring an amber cocktail for the reception",
+              "width": 2400,
+              "height": 1603
+            }
+          },
+          {
+            "date": "17:00",
+            "title": "Wedding breakfast",
+            "text": "Three seasonal courses in the Orangery or the Coach House, followed by speeches as the light softens.",
+            "image": {
+              "src": "https://images.unsplash.com/photo-1528605248644-14dd04022da1?w=2400&q=80&auto=format&fit=crop",
+              "alt": "Guests sharing the wedding breakfast at a long table",
+              "width": 2400,
+              "height": 1600
+            }
+          },
+          {
+            "date": "20:00",
+            "title": "First dance & evening guests",
+            "text": "The Orangery doors fold open, the band starts and the festoon lights come on across the courtyard."
+          },
+          {
+            "date": "23:30",
+            "title": "Carriages",
+            "text": "Music ends at 11pm. Twenty-four lucky guests walk upstairs; everyone else is waved off under the stars."
+          }
+        ]
+      }
+    },
+    {
+      "type": "section",
+      "props": {
+        "tone": "inverse",
+        "spacingTop": "xl",
+        "spacingBottom": "xl",
+        "minHeight": "half",
+        "verticalAlign": "center"
+      },
+      "children": [
+        {
+          "type": "animated-text",
+          "props": {
+            "prefix": "Celebrate your",
+            "words": [
+              {
+                "text": "wedding"
+              },
+              {
+                "text": "anniversary"
+              },
+              {
+                "text": "elopement"
+              },
+              {
+                "text": "vow renewal"
+              },
+              {
+                "text": "fortieth"
+              }
+            ],
+            "suffix": "among the roses",
+            "interval": 2.6,
+            "effect": "slide",
+            "level": "h2",
+            "size": "display",
+            "italicWords": true
+          }
+        },
+        {
+          "type": "text",
+          "props": {
+            "text": "Not only weddings: we host a handful of anniversaries, renewals and milestone birthdays each season, with the same care.",
+            "size": "lg",
+            "muted": true
+          }
+        }
+      ],
+      "animation": {
+        "preset": "fade"
+      }
+    },
+    {
+      "type": "testimonials",
+      "variant": "grid",
+      "props": {
+        "eyebrow": "From our couples",
+        "heading": "In their words",
+        "columns": 3,
+        "showRating": true,
+        "items": [
+          {
+            "quote": "Clara, our coordinator, answered every one of our 214 emails with the same patience. On the day we didn’t make a single decision.",
+            "author": "Priya & Sam",
+            "role": "Married September 2025 · Orangery",
+            "rating": 5,
+            "source": "Hitched"
+          },
+          {
+            "quote": "The food was the thing our guests still talk about — the lamb, the late-night toasties, the strawberries from the walled garden.",
+            "author": "Rosa & Daniel",
+            "role": "Married July 2026 · Lawn marquee, 260 guests",
+            "rating": 5,
+            "source": "Google"
+          },
+          {
+            "quote": "We eloped with twelve people and it never once felt small. Just intimate, and entirely ours.",
+            "author": "Ama & Lewis",
+            "role": "Elopement, April 2026",
+            "rating": 5,
+            "source": "Instagram"
+          }
+        ]
+      },
+      "animation": {
+        "preset": "stagger",
+        "target": "children"
+      }
+    },
+    {
+      "type": "faq",
+      "variant": "accordion",
+      "props": {
+        "tone": "surface",
+        "eyebrow": "Planning",
+        "heading": "Wedding questions",
+        "subheading": "More detail on our full FAQ page, or ask your coordinator anything.",
+        "cta": {
+          "label": "Read all FAQs",
+          "link": "/faq",
+          "style": "link"
+        },
+        "containerWidth": "narrow",
+        "items": [
+          {
+            "question": "How far ahead should we book?",
+            "answer": "Summer Saturdays in 2027 are booking now, typically 14–18 months ahead. Weekdays and shoulder-season dates are often available within six months."
+          },
+          {
+            "question": "What deposit is required?",
+            "answer": "A 25% deposit secures your date, with the balance due eight weeks before. Payment plans are available on request."
+          },
+          {
+            "question": "Can we have a marquee?",
+            "answer": "Yes — The Lawn takes marquees of up to 400 guests. We work with two preferred marquee companies and can share quotes."
+          },
+          {
+            "question": "Do you offer menu tastings?",
+            "answer": "Every couple is invited to a tasting for two in the Coach House around six months before the wedding."
+          }
+        ]
+      }
+    },
+    {
+      "type": "cta",
+      "variant": "image-background",
+      "props": {
+        "eyebrow": "Your date",
+        "heading": "Let’s find the *right* day",
+        "subheading": "Tell us your season and your numbers, and we’ll reply with availability within one working day.",
+        "image": {
+          "src": "https://images.unsplash.com/photo-1546032996-6dfacbacbf3f?w=2400&q=80&auto=format&fit=crop",
+          "alt": "Couple beneath a veil in the golden meadow beyond the garden",
+          "width": 2400,
+          "height": 3381
+        },
+        "overlayOpacity": 0.45,
+        "buttons": [
+          {
+            "label": "Book a viewing",
+            "link": "/enquire#inquiry",
+            "style": "primary"
+          },
+          {
+            "label": "Call {{business.phone}}",
+            "link": "tel:+441275555014",
+            "style": "ghost"
+          }
+        ]
+      },
+      "animation": {
+        "preset": "cinematic-reveal"
+      }
+    }
+  ]
+}

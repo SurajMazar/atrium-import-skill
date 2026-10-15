@@ -1,0 +1,52 @@
+{
+  "id": "form-open-days",
+  "name": "Open days & letters",
+  "slug": "open-days",
+  "fields": [
+    {
+      "id": "f-od-email",
+      "type": "email",
+      "name": "email",
+      "label": "Email",
+      "required": true,
+      "width": "full"
+    }
+  ],
+  "settings": {
+    "submitLabel": "Keep me posted",
+    "successMessage": "Lovely — you’ll hear about our next open day first.",
+    "honeypot": true,
+    "captcha": {
+      "provider": "none",
+      "minScore": 0.5,
+      "action": "submit"
+    },
+    "storeSubmissions": true,
+    "rateLimitPerMinute": 5,
+    "layout": "stacked"
+  },
+  "rules": [
+    {
+      "id": "rule-open-days-notify",
+      "name": "Notify the weddings team",
+      "enabled": true,
+      "then": [
+        {
+          "type": "email",
+          "to": [
+            "weddings@rosewood.example"
+          ],
+          "subject": "Open day sign-up: {{email}}"
+        },
+        {
+          "type": "tag",
+          "tags": [
+            "open-days"
+          ]
+        }
+      ],
+      "otherwise": [],
+      "stopProcessing": false
+    }
+  ]
+}

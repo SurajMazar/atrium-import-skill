@@ -1,0 +1,637 @@
+{
+  "id": "pg-home",
+  "title": "Home",
+  "slug": "",
+  "isHomepage": true,
+  "status": "published",
+  "layout": {
+    "header": "transparent",
+    "footer": "default"
+  },
+  "seo": {
+    "title": "Rosewood Courtyard — Walled garden wedding venue, Bath",
+    "description": "A restored 1860s walled rose garden near Bath for weddings and celebrations: a rose courtyard, glass Orangery, stone Coach House sleeping 24 and a lawn for 400.",
+    "ogImage": "https://images.unsplash.com/photo-1550005809-91ad75fb315f?w=1200&q=80&auto=format&fit=crop"
+  },
+  "sections": [
+    {
+      "type": "hero",
+      "variant": "carousel",
+      "props": {
+        "eyebrow": "Chew Valley · near Bath",
+        "heading": "Married among the *roses*",
+        "subheading": "A restored Victorian walled garden for weddings of twenty to four hundred — with a glass Orangery, a stone Coach House and a kitchen that cooks from the garden.",
+        "image": {
+          "src": "https://images.unsplash.com/photo-1550005809-91ad75fb315f?w=2400&q=80&auto=format&fit=crop",
+          "alt": "Bride and groom holding a garden bouquet in the Rose Courtyard",
+          "width": 2400,
+          "height": 1602
+        },
+        "images": [
+          {
+            "src": "https://images.unsplash.com/photo-1550005809-91ad75fb315f?w=2400&q=80&auto=format&fit=crop",
+            "alt": "Bride and groom holding a garden bouquet in the Rose Courtyard",
+            "width": 2400,
+            "height": 1602
+          },
+          {
+            "src": "https://images.unsplash.com/photo-1585320806297-9794b3e4eeae?w=2400&q=80&auto=format&fit=crop",
+            "alt": "Gravel path between rose beds inside the walled garden",
+            "width": 2400,
+            "height": 1350
+          },
+          {
+            "src": "https://images.unsplash.com/photo-1527529482837-4698179dc6ce?w=2400&q=80&auto=format&fit=crop",
+            "alt": "Wedding guests raising glasses under festoon lights in the courtyard",
+            "width": 2400,
+            "height": 1600
+          }
+        ],
+        "overlayOpacity": 0.35,
+        "contentPosition": "bottom-center",
+        "height": "screen",
+        "showScrollCue": true,
+        "buttons": [
+          {
+            "label": "Book a viewing",
+            "link": "/enquire#inquiry",
+            "style": "primary"
+          },
+          {
+            "label": "Explore the spaces",
+            "link": "/venues",
+            "style": "ghost"
+          }
+        ]
+      },
+      "animation": {
+        "preset": "cinematic-reveal"
+      }
+    },
+    {
+      "type": "text-section",
+      "variant": "statement",
+      "props": {
+        "eyebrow": "Welcome to Rosewood",
+        "heading": "For a century and a half, these walls kept the wind off the roses. Now they keep the world out for a day — *yours*.",
+        "body": "We host one wedding at a time, never more than ninety a year, so the garden, the team and the kitchen belong entirely to you.",
+        "align": "center",
+        "containerWidth": "narrow",
+        "spacingTop": "xl",
+        "spacingBottom": "lg"
+      },
+      "animation": {
+        "preset": "text-reveal"
+      }
+    },
+    {
+      "type": "venues",
+      "variant": "cards",
+      "props": {
+        "eyebrow": "The spaces",
+        "heading": "Four spaces, one walled estate",
+        "subheading": "Marry in the courtyard, dine in the Orangery, dance until the carriages at 11.30pm — and walk upstairs to bed.",
+        "columns": 4,
+        "showTable": true,
+        "items": [
+          {
+            "name": "The Rose Courtyard",
+            "size": "620 m² walled garden",
+            "description": "Our walled rose garden, licensed for ceremonies under the open sky.",
+            "capacities": [
+              {
+                "layout": "Ceremony",
+                "guests": "140"
+              },
+              {
+                "layout": "Cocktail",
+                "guests": "220"
+              },
+              {
+                "layout": "Banquet",
+                "guests": "—"
+              },
+              {
+                "layout": "Theatre",
+                "guests": "140"
+              }
+            ],
+            "features": [
+              "Licensed for ceremonies",
+              "Heritage rose beds",
+              "Festoon lighting",
+              "Covered loggia for rain"
+            ],
+            "image": {
+              "src": "https://images.unsplash.com/photo-1469371670807-013ccf25f16a?w=2400&q=80&auto=format&fit=crop",
+              "alt": "Ceremony aisle lined with roses in the Rose Courtyard",
+              "width": 2400,
+              "height": 1602
+            },
+            "link": "/venues"
+          },
+          {
+            "name": "The Orangery",
+            "size": "310 m² glasshouse",
+            "description": "A restored Victorian glasshouse for wedding breakfasts and dancing.",
+            "capacities": [
+              {
+                "layout": "Ceremony",
+                "guests": "120"
+              },
+              {
+                "layout": "Banquet",
+                "guests": "140"
+              },
+              {
+                "layout": "Cocktail",
+                "guests": "180"
+              },
+              {
+                "layout": "Theatre",
+                "guests": "150"
+              }
+            ],
+            "features": [
+              "Licensed for ceremonies",
+              "Underfloor heating",
+              "Built-in dance floor",
+              "Opens to the courtyard"
+            ],
+            "image": {
+              "src": "https://images.unsplash.com/photo-1519225421980-715cb0215aed?w=2400&q=80&auto=format&fit=crop",
+              "alt": "Long candlelit reception table inside the Orangery",
+              "width": 2400,
+              "height": 1600
+            },
+            "link": "/venues"
+          },
+          {
+            "name": "The Coach House",
+            "size": "190 m² stone hall",
+            "description": "Stone, oak and firelight — with eleven bedrooms upstairs.",
+            "capacities": [
+              {
+                "layout": "Ceremony",
+                "guests": "80"
+              },
+              {
+                "layout": "Banquet",
+                "guests": "90"
+              },
+              {
+                "layout": "Cocktail",
+                "guests": "120"
+              },
+              {
+                "layout": "Theatre",
+                "guests": "100"
+              }
+            ],
+            "features": [
+              "Licensed for ceremonies",
+              "Open fireplace",
+              "Accommodation for 24",
+              "Private bar"
+            ],
+            "image": {
+              "src": "https://images.unsplash.com/photo-1519167758481-83f550bb49b3?w=2400&q=80&auto=format&fit=crop",
+              "alt": "Coach House hall set with round tables beneath chandeliers",
+              "width": 2400,
+              "height": 1550
+            },
+            "link": "/venues"
+          },
+          {
+            "name": "The Lawn",
+            "size": "1.2 acres",
+            "description": "A level acre beyond the wall for marquees of up to 400 guests.",
+            "capacities": [
+              {
+                "layout": "Ceremony",
+                "guests": "250"
+              },
+              {
+                "layout": "Banquet",
+                "guests": "400"
+              },
+              {
+                "layout": "Cocktail",
+                "guests": "400"
+              },
+              {
+                "layout": "Theatre",
+                "guests": "300"
+              }
+            ],
+            "features": [
+              "Marquee-ready",
+              "Views to the Mendips",
+              "Lawn games",
+              "Generator-free mains power"
+            ],
+            "image": {
+              "src": "https://images.unsplash.com/photo-1464366400600-7168b8af9bc3?w=2400&q=80&auto=format&fit=crop",
+              "alt": "Reception marquee on the Lawn set for dinner",
+              "width": 2400,
+              "height": 1602
+            },
+            "link": "/venues"
+          }
+        ]
+      },
+      "animation": {
+        "preset": "stagger",
+        "target": "children",
+        "stagger": 0.12
+      }
+    },
+    {
+      "type": "content-split",
+      "variant": "overlap",
+      "props": {
+        "tone": "surface",
+        "eyebrow": "Our story",
+        "heading": "A kitchen garden, rescued *rose* by rose",
+        "body": "The walled garden was built in 1868 to grow peaches and cut flowers for the house beyond the hill. By 2014 it was lost beneath bramble and ash saplings.\n\nIt took the Ashcombe family five years, two master bricklayers and one very patient rosarian to bring it back. The Orangery reopened in 2019; the first wedding was held that September.",
+        "image": {
+          "src": "https://images.unsplash.com/photo-1523438885200-e635ba2c371e?w=2400&q=80&auto=format&fit=crop",
+          "alt": "Flower-dressed pavilion in the walled garden ready for a ceremony",
+          "width": 2400,
+          "height": 3600
+        },
+        "secondaryImage": {
+          "src": "https://images.unsplash.com/photo-1487530811176-3780de880c2d?w=2400&q=80&auto=format&fit=crop",
+          "alt": "Garden roses and wildflowers cut from the estate beds",
+          "width": 2400,
+          "height": 2400
+        },
+        "imageSide": "right",
+        "facts": [
+          {
+            "label": "Built",
+            "value": "1868"
+          },
+          {
+            "label": "Restored",
+            "value": "2014 – 2019"
+          },
+          {
+            "label": "Heritage roses",
+            "value": "312 varieties"
+          }
+        ],
+        "signature": "Eleanor & James Ashcombe",
+        "buttons": [
+          {
+            "label": "Plan your wedding",
+            "link": "/weddings",
+            "style": "link"
+          }
+        ]
+      },
+      "animation": {
+        "preset": "image-mask"
+      }
+    },
+    {
+      "type": "marquee",
+      "props": {
+        "items": [
+          {
+            "text": "Weddings"
+          },
+          {
+            "text": "Celebrations"
+          },
+          {
+            "text": "Garden dinners"
+          },
+          {
+            "text": "Corporate retreats"
+          },
+          {
+            "text": "Elopements"
+          }
+        ],
+        "separator": "·",
+        "size": "xl",
+        "italic": true,
+        "speed": 40,
+        "spacingTop": "md",
+        "spacingBottom": "md"
+      }
+    },
+    {
+      "type": "offers",
+      "variant": "featured",
+      "props": {
+        "eyebrow": "Wedding packages",
+        "heading": "Three ways to *begin*",
+        "subheading": "Every package includes exclusive use, our in-house kitchen and a dedicated coordinator from booking to the last dance.",
+        "columns": 3,
+        "imageAspect": "4:5",
+        "items": [
+          {
+            "title": "Intimate Elopement",
+            "image": {
+              "src": "https://images.unsplash.com/photo-1465495976277-4387d4b0b4c6?w=2400&q=80&auto=format&fit=crop",
+              "alt": "Couple’s hands with rings beside a small bouquet",
+              "width": 2400,
+              "height": 1600
+            },
+            "badge": "Up to 20 guests",
+            "price": "£4,800",
+            "priceNote": "Monday – Thursday",
+            "description": "A ceremony in the Rose Courtyard and a long-table supper in the Orangery.",
+            "validity": "2027 season",
+            "cta": {
+              "label": "Details",
+              "link": "/weddings#packages",
+              "style": "link"
+            }
+          },
+          {
+            "title": "The Courtyard Day",
+            "image": {
+              "src": "https://images.unsplash.com/photo-1511285560929-80b456fea0bc?w=2400&q=80&auto=format&fit=crop",
+              "alt": "Newlyweds celebrating with guests in the courtyard",
+              "width": 2400,
+              "height": 1602
+            },
+            "badge": "Most loved",
+            "price": "£16,500",
+            "priceNote": "Up to 90 guests",
+            "description": "A full day in the courtyard and Coach House, with the bedrooms for the night.",
+            "validity": "2027 season",
+            "cta": {
+              "label": "Details",
+              "link": "/weddings#packages",
+              "style": "link"
+            }
+          },
+          {
+            "title": "The Grand Celebration",
+            "image": {
+              "src": "https://images.unsplash.com/photo-1511795409834-ef04bbd61622?w=2400&q=80&auto=format&fit=crop",
+              "alt": "Banquet table set with garden flowers and glassware",
+              "width": 2400,
+              "height": 1602
+            },
+            "badge": "Two nights",
+            "price": "£29,000",
+            "priceNote": "Up to 160 guests",
+            "description": "Exclusive use of the whole estate from Friday afternoon to Sunday brunch.",
+            "validity": "2027 season",
+            "cta": {
+              "label": "Details",
+              "link": "/weddings#packages",
+              "style": "link"
+            }
+          }
+        ]
+      },
+      "animation": {
+        "preset": "stagger",
+        "target": "children"
+      }
+    },
+    {
+      "type": "testimonials",
+      "variant": "carousel",
+      "props": {
+        "tone": "inverse",
+        "eyebrow": "Kind words",
+        "heading": "From the couples who *married* here",
+        "align": "center",
+        "showRating": true,
+        "autoplay": true,
+        "items": [
+          {
+            "quote": "We walked into the courtyard on a grey February afternoon and still knew within a minute. In June, with every rose out, it was beyond anything we imagined.",
+            "author": "Imogen & Theo",
+            "role": "Married June 2026 · 120 guests",
+            "rating": 5,
+            "source": "Google"
+          },
+          {
+            "quote": "Clara, our coordinator, answered every one of our 214 emails with the same patience. On the day we didn’t make a single decision.",
+            "author": "Priya & Sam",
+            "role": "Married September 2025 · Orangery",
+            "rating": 5,
+            "source": "Hitched"
+          },
+          {
+            "quote": "The food was the thing our guests still talk about — the lamb, the late-night toasties, the strawberries from the walled garden.",
+            "author": "Rosa & Daniel",
+            "role": "Married July 2026 · Lawn marquee, 260 guests",
+            "rating": 5,
+            "source": "Google"
+          },
+          {
+            "quote": "Having everyone stay in the Coach House turned a wedding into a whole weekend. Breakfast the morning after was our favourite meal.",
+            "author": "Hannah & Joe",
+            "role": "Married May 2026 · Coach House",
+            "rating": 5,
+            "source": "Hitched"
+          }
+        ]
+      },
+      "animation": {
+        "preset": "fade"
+      }
+    },
+    {
+      "type": "gallery",
+      "variant": "masonry",
+      "props": {
+        "eyebrow": "The garden in season",
+        "heading": "Moments from recent weddings",
+        "subheading": "Photographed by the couples’ own photographers, shared with their kind permission.",
+        "columns": 3,
+        "gap": "md",
+        "aspect": "auto",
+        "lightbox": true,
+        "showCaptions": false,
+        "images": [
+          {
+            "src": "https://images.unsplash.com/photo-1525258946800-98cfd641d0de?w=2400&q=80&auto=format&fit=crop",
+            "alt": "Bride holding a peach rose bouquet cut from the walled garden",
+            "width": 2400,
+            "height": 3600
+          },
+          {
+            "src": "https://images.unsplash.com/photo-1546032996-6dfacbacbf3f?w=2400&q=80&auto=format&fit=crop",
+            "alt": "Couple embracing beneath a veil in the meadow beyond the Lawn",
+            "width": 2400,
+            "height": 3381
+          },
+          {
+            "src": "https://images.unsplash.com/photo-1522673607200-164d1b6ce486?w=2400&q=80&auto=format&fit=crop",
+            "alt": "Two garland-dressed chairs on the Lawn",
+            "width": 2400,
+            "height": 1600
+          },
+          {
+            "src": "https://images.unsplash.com/photo-1478146059778-26028b07395a?w=2400&q=80&auto=format&fit=crop",
+            "alt": "Dessert table against the courtyard’s old brick wall",
+            "width": 2400,
+            "height": 1561
+          },
+          {
+            "src": "https://images.unsplash.com/photo-1515934751635-c81c6bc9a2d8?w=2400&q=80&auto=format&fit=crop",
+            "alt": "Wedding rings resting on courtyard roses",
+            "width": 2400,
+            "height": 1600
+          },
+          {
+            "src": "https://images.unsplash.com/photo-1530023367847-a683933f4172?w=2400&q=80&auto=format&fit=crop",
+            "alt": "Long dinner table in the Coach House dressed with red napkins",
+            "width": 2400,
+            "height": 3600
+          }
+        ],
+        "buttons": [
+          {
+            "label": "Full gallery",
+            "link": "/gallery",
+            "style": "outline"
+          }
+        ]
+      },
+      "animation": {
+        "preset": "stagger",
+        "target": "children"
+      }
+    },
+    {
+      "type": "events",
+      "variant": "list",
+      "anchor": "open-days",
+      "props": {
+        "tone": "surface",
+        "eyebrow": "Open days & wedding fairs",
+        "heading": "Come and see the *garden*",
+        "subheading": "No appointment needed. Meet our coordinators, taste the kitchen’s seasonal canapés and walk every space.",
+        "items": [
+          {
+            "title": "Winter Open Day",
+            "date": "2026-11-15",
+            "time": "11:00 – 15:00",
+            "location": "The Coach House",
+            "category": "Open day",
+            "summary": "Fires lit, mulled cider poured and the Coach House dressed for a December wedding.",
+            "link": "/enquire#inquiry"
+          },
+          {
+            "title": "New Year Wedding Fair",
+            "date": "2027-01-24",
+            "time": "10:30 – 16:00",
+            "location": "The Orangery",
+            "category": "Wedding fair",
+            "summary": "Twenty of our favourite florists, photographers and makers under one glass roof.",
+            "link": "/enquire#inquiry"
+          },
+          {
+            "title": "Spring Garden Viewing",
+            "date": "2027-03-14",
+            "time": "10:00 – 14:00",
+            "location": "The Rose Courtyard",
+            "category": "Open day",
+            "summary": "See the garden waking up, with our head gardener on hand to talk roses and timings.",
+            "link": "/enquire#inquiry"
+          },
+          {
+            "title": "Twilight Viewing Evening",
+            "date": "2027-04-29",
+            "time": "18:00 – 21:00",
+            "location": "Whole estate",
+            "category": "Evening viewing",
+            "summary": "The estate lit as it is for an evening reception, with a live trio in the Orangery.",
+            "link": "/enquire#inquiry"
+          },
+          {
+            "title": "Midsummer Open Garden",
+            "date": "2027-06-06",
+            "time": "11:00 – 16:00",
+            "location": "The Rose Courtyard",
+            "category": "Open day",
+            "summary": "The roses at their peak, a marquee dressed on the Lawn and strawberries from the beds.",
+            "link": "/enquire#inquiry"
+          }
+        ],
+        "columns": 3,
+        "buttons": [
+          {
+            "label": "Reserve a place",
+            "link": "/enquire#inquiry",
+            "style": "primary"
+          }
+        ]
+      }
+    },
+    {
+      "type": "faq",
+      "variant": "two-column",
+      "props": {
+        "eyebrow": "Good to know",
+        "heading": "Quick answers",
+        "subheading": "The questions couples ask on their first visit.",
+        "cta": {
+          "label": "All questions",
+          "link": "/faq",
+          "style": "link"
+        },
+        "items": [
+          {
+            "question": "Are you licensed for ceremonies?",
+            "answer": "Yes — the Rose Courtyard, the Orangery and the Coach House are all licensed for civil ceremonies and partnerships."
+          },
+          {
+            "question": "What time does the evening end?",
+            "answer": "Music finishes at 11pm and carriages are at 11.30pm. Guests staying in the Coach House can carry on quietly by the fire."
+          },
+          {
+            "question": "Can we bring our own caterer?",
+            "answer": "Our in-house kitchen cooks for every event, using produce from the walled garden and growers within twenty miles."
+          },
+          {
+            "question": "How many guests can stay overnight?",
+            "answer": "The Coach House sleeps twenty-four in eleven bedrooms, including the Bridal Loft."
+          }
+        ]
+      }
+    },
+    {
+      "type": "cta",
+      "variant": "image-background",
+      "props": {
+        "eyebrow": "Begin here",
+        "heading": "Walk the garden with *us*",
+        "subheading": "Private viewings Wednesday to Sunday, 10am – 5pm. Bring your questions, your mother, or just yourselves.",
+        "image": {
+          "src": "https://images.unsplash.com/photo-1532712938310-34cb3982ef74?w=2400&q=80&auto=format&fit=crop",
+          "alt": "Couple walking through the misty hills above the estate",
+          "width": 2400,
+          "height": 1600
+        },
+        "overlayOpacity": 0.45,
+        "buttons": [
+          {
+            "label": "Book a viewing",
+            "link": "/enquire#inquiry",
+            "style": "primary"
+          },
+          {
+            "label": "Call {{business.phone}}",
+            "link": "tel:+441275555014",
+            "style": "ghost"
+          }
+        ]
+      },
+      "animation": {
+        "preset": "cinematic-reveal"
+      }
+    }
+  ]
+}

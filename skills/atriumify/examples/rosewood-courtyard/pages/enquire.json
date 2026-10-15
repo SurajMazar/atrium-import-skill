@@ -1,0 +1,151 @@
+{
+  "id": "pg-enquire",
+  "title": "Enquire",
+  "slug": "enquire",
+  "status": "published",
+  "seo": {
+    "title": "Enquire & book a viewing — Rosewood Courtyard",
+    "description": "Check availability for your wedding or event at Rosewood Courtyard and book a private viewing, Wednesday to Sunday from 10am to 5pm, in the Chew Valley."
+  },
+  "sections": [
+    {
+      "type": "text-section",
+      "variant": "intro",
+      "props": {
+        "eyebrow": "Enquire",
+        "heading": "Let’s talk about your *day*",
+        "headingLevel": "h1",
+        "body": "Share a few details and we’ll reply personally within one working day, with availability, our 2027 brochure and some times for a private viewing.",
+        "align": "center",
+        "containerWidth": "narrow",
+        "spacingBottom": "sm"
+      },
+      "animation": {
+        "preset": "text-reveal"
+      }
+    },
+    {
+      "type": "form",
+      "variant": "split-with-text",
+      "anchor": "inquiry",
+      "props": {
+        "formId": "form-wedding-inquiry",
+        "eyebrow": "Wedding inquiry",
+        "heading": "Tell us about your *plans*",
+        "subheading": "Not sure of everything yet? That’s completely normal — a season and a rough guest count is plenty to start with.",
+        "image": {
+          "src": "https://images.unsplash.com/photo-1517457373958-b7bdd4587205?w=2400&q=80&auto=format&fit=crop",
+          "alt": "Guests mingling under string lights in the courtyard",
+          "width": 2400,
+          "height": 1602
+        },
+        "showContactDetails": true,
+        "submitLabel": "Send our inquiry"
+      }
+    },
+    {
+      "type": "contact-info",
+      "variant": "cards",
+      "props": {
+        "tone": "surface",
+        "eyebrow": "Visit & contact",
+        "heading": "Viewings Wednesday to Sunday",
+        "subheading": "Private viewings by appointment, 10am – 5pm. Open days are listed on our homepage.",
+        "showWhatsapp": false,
+        "showHours": true,
+        "showSocial": true,
+        "extra": [
+          {
+            "label": "Weddings",
+            "value": "weddings@rosewood.example",
+            "link": "mailto:weddings@rosewood.example"
+          },
+          {
+            "label": "Corporate events",
+            "value": "corporate@rosewood.example",
+            "link": "mailto:corporate@rosewood.example"
+          },
+          {
+            "label": "Open days",
+            "value": "See upcoming dates",
+            "link": "/#open-days"
+          }
+        ]
+      }
+    },
+    {
+      "type": "section",
+      "props": {
+        "spacingTop": "lg",
+        "spacingBottom": "xl"
+      },
+      "children": [
+        {
+          "type": "columns",
+          "props": {
+            "ratio": "5:7",
+            "gap": "xl",
+            "alignItems": "center"
+          },
+          "children": [
+            {
+              "type": "stack",
+              "props": {
+                "gap": "md"
+              },
+              "children": [
+                {
+                  "type": "text",
+                  "props": {
+                    "text": "Finding us",
+                    "eyebrow": true
+                  }
+                },
+                {
+                  "type": "heading",
+                  "props": {
+                    "text": "In the Chew Valley, near Bath",
+                    "level": "h2"
+                  }
+                },
+                {
+                  "type": "text",
+                  "props": {
+                    "text": "{{business.address}}. 25 minutes from Bath Spa station and 30 minutes from Bristol Airport. Follow the brown signs for Rosewood from the A368.",
+                    "muted": true
+                  }
+                },
+                {
+                  "type": "list",
+                  "props": {
+                    "style": "check",
+                    "items": [
+                      {
+                        "text": "Parking for 80 cars on site"
+                      },
+                      {
+                        "text": "Taxi rank arranged for 11.30pm carriages"
+                      },
+                      {
+                        "text": "Coach drop-off at the Coach House gate"
+                      }
+                    ]
+                  }
+                }
+              ]
+            },
+            {
+              "type": "map",
+              "props": {
+                "query": "{{business.address}}",
+                "height": "lg",
+                "zoom": 13,
+                "title": "Map showing Rosewood Courtyard in the Chew Valley"
+              }
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

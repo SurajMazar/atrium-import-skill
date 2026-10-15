@@ -1,0 +1,162 @@
+{
+  "id": "form-corporate-inquiry",
+  "name": "Corporate inquiry",
+  "slug": "corporate-inquiry",
+  "fields": [
+    {
+      "id": "f-co-name",
+      "type": "text",
+      "name": "name",
+      "label": "Your name",
+      "required": true,
+      "width": "half"
+    },
+    {
+      "id": "f-co-company",
+      "type": "text",
+      "name": "company",
+      "label": "Company",
+      "required": true,
+      "width": "half"
+    },
+    {
+      "id": "f-co-email",
+      "type": "email",
+      "name": "email",
+      "label": "Work email",
+      "required": true,
+      "width": "half"
+    },
+    {
+      "id": "f-co-phone",
+      "type": "phone",
+      "name": "phone",
+      "label": "Phone",
+      "required": false,
+      "width": "half"
+    },
+    {
+      "id": "f-co-format",
+      "type": "select",
+      "name": "eventFormat",
+      "label": "Type of event",
+      "required": true,
+      "width": "half",
+      "options": [
+        {
+          "label": "Leadership retreat",
+          "value": "retreat"
+        },
+        {
+          "label": "Product launch",
+          "value": "launch"
+        },
+        {
+          "label": "Client or awards dinner",
+          "value": "dinner"
+        },
+        {
+          "label": "Summer or winter party",
+          "value": "party"
+        },
+        {
+          "label": "Something else",
+          "value": "other"
+        }
+      ]
+    },
+    {
+      "id": "f-co-date",
+      "type": "date",
+      "name": "eventDate",
+      "label": "Preferred date",
+      "required": true,
+      "width": "half"
+    },
+    {
+      "id": "f-co-delegates",
+      "type": "number",
+      "name": "delegates",
+      "label": "Number of guests",
+      "required": true,
+      "width": "half",
+      "validation": {
+        "min": 6,
+        "max": 400
+      }
+    },
+    {
+      "id": "f-co-overnight",
+      "type": "radio",
+      "name": "overnight",
+      "label": "Overnight stay needed?",
+      "required": false,
+      "width": "half",
+      "options": [
+        {
+          "label": "Yes",
+          "value": "yes"
+        },
+        {
+          "label": "No",
+          "value": "no"
+        }
+      ]
+    },
+    {
+      "id": "f-co-message",
+      "type": "textarea",
+      "name": "message",
+      "label": "Agenda, AV needs or anything else",
+      "required": false,
+      "width": "full"
+    },
+    {
+      "id": "f-co-consent",
+      "type": "consent",
+      "name": "consent",
+      "label": "I agree to Rosewood Courtyard contacting me about this event.",
+      "required": true,
+      "width": "full"
+    }
+  ],
+  "settings": {
+    "submitLabel": "Request a proposal",
+    "successMessage": "Thank you — our events manager will send a tailored proposal within two working days.",
+    "honeypot": true,
+    "captcha": {
+      "provider": "none",
+      "minScore": 0.5,
+      "action": "submit"
+    },
+    "storeSubmissions": true,
+    "rateLimitPerMinute": 5,
+    "layout": "grid"
+  },
+  "rules": [
+    {
+      "id": "rule-corporate-notify",
+      "name": "Notify the corporate team",
+      "enabled": true,
+      "then": [
+        {
+          "type": "email",
+          "to": [
+            "corporate@rosewood.example"
+          ],
+          "replyTo": "{{email}}",
+          "subject": "Corporate inquiry: {{company}} — {{eventFormat}} for {{delegates}} on {{eventDate}}",
+          "body": "{{name}} ({{email}}, {{phone}})\nOvernight: {{overnight}}\n\n{{message}}"
+        },
+        {
+          "type": "tag",
+          "tags": [
+            "corporate"
+          ]
+        }
+      ],
+      "otherwise": [],
+      "stopProcessing": false
+    }
+  ]
+}
