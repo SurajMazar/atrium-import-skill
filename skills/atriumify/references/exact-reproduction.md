@@ -138,6 +138,56 @@ Port the scene's maths exactly, then verify with `compare-scene.mjs` (frozen clo
 - `requestAnimationFrame` does not run in hidden/embedded browser panes; schedule site-script work with
   `setTimeout` (scene render loops may use rAF).
 
+### 3.10 Page heroes (inner pages)
+- Copy the hero's own height variants per page (e.g. `tall` 78svh / py-40, `standard` 62svh / py-32, `short`
+  48svh / py-28) and the vertical rhythm between crumbs, eyebrow, title and description (mt-6, mt-4, mt-6).
+  Atrium's `h-tall`/`h-auto` heights and its `gap` on `.a-hero__copy` are different. Detail pages that share
+  Atrium's `h-auto` can be told apart in CSS by their breadcrumb depth (`:has(.pg-crumbs li:nth-child(3))`).
+- `.a-eyebrow` is `inline-flex`: inside a block container it sits on the parent's line box and adds 3–5px.
+  Make it `display: flex` (or block) wherever you rebuild spacing with margins.
+
+### 3.11 Scroll motion
+Atrium's animation presets (`data-a-anim`) work per section (fade-up a whole section, stagger its direct
+children). Hand-built sites animate per element: eyebrow fade, word-masked title, lede +0.1s, action +0.2s,
+staggered cards 0.1s apart, clip-masked images settling from a zoom, parallax backgrounds, pinned
+horizontal rails, magnetic buttons. Port the source's motion vocabulary instead of picking presets:
+- Read the motion tokens (durations, eases, stagger, distances, trigger such as `top 82%`) and every
+  wrapper (`Reveal`, `RevealText`, `RevealImage`, `StaggerReveal`, `ParallaxImage`, `useMagnetic`, hero
+  timelines). Map each to Atrium markup by rule (section intros, split copy columns, grids, CTA bands,
+  feature rows) and list per-page exceptions the source has (e.g. one page reveals each line of a row).
+- Run it as a site script on the Web Animations API (no GSAP from a CDN). GSAP eases: power3.out =
+  `cubic-bezier(.215,.61,.355,1)`, expo.out = `cubic-bezier(.19,1,.22,1)`, power2.out =
+  `cubic-bezier(.25,.46,.45,.94)`. Animate the independent `translate` / `scale` properties, not
+  `transform`, so you never clobber a centring transform or a hover/bounce animation.
+- Switch the theme's motion intensity to **Off** so Atrium's presets don't animate the same sections twice.
+- Hidden-until-revealed content must never stay hidden: verify with `compare-motion.mjs` (it scrolls the
+  page and lists anything still invisible) on every page, and after client-side navigation.
+- ParallaxImage layers are over-sized (e.g. `-inset-y-[12%]`): give the Atrium image the same over-size,
+  or the drift exposes an edge.
+
+### 3.12 Horizontal rails
+A pinned rail (`useHorizontalScroll`) = sticky full-height panel + the track translated by the scroll
+distance `track.scrollWidth - innerWidth`. A flex track's `scrollWidth` excludes its end padding: match the
+source's padding so the pin length (section height = 100vh + distance) is identical. Copy the card widths per
+breakpoint (82vw / 60vw / 38vw / 32vw), overlays such as step numbers on the photo, caption order (title, caps
+line, body) and the swipe/scroll hint.
+
+### 3.13 Interactive UI is content too
+Filters with live counts ("Showing 3 of 3 sanctuaries"), FAQ topic filters, gallery filters with counts,
+multi-step booking flows with a summary aside, guest/date booking panels and contact panels are part of the
+site. Port them (site script + CSS, driving the Atrium form underneath so submissions keep working) before
+the first import. Find them with a text diff: render every source page, collect all text, alt and
+aria-label strings and compare with every string in the bundle; anything missing is UI you have not ported.
+
+### 3.14 Re-importing
+- Never reference the site's own media by absolute URL in custom CSS or scripts (e.g. a logo mark in
+  `background: url(https://…/storage/media/…)`): a re-import or media clean-up breaks it. Inline small SVGs as
+  `data:image/svg+xml` (≤ 8,192 characters) or use the branding fields.
+- The importer reuses identical files already in the organization's library (checksum match), so
+  re-importing the same bundle does not duplicate media in storage.
+- Deleting media in the admin deletes the files from storage (permanent); deleting a website archives it
+  (soft delete) and removes its domain records — re-add the custom domain to the new site.
+
 ## 4. Gates: the site is not done until all pass, at 1440px and 390px, on every page
 
 1. `compare-typography.mjs`: no family/size/weight/line-height differences left except noted noise.
@@ -147,6 +197,8 @@ Port the scene's maths exactly, then verify with `compare-scene.mjs` (frozen clo
 4. `side-by-side.mjs`: **look at every strip of every page** and list each visible difference; fix or report it.
    Also capture the header over the hero, scrolled, and the mobile menu open.
 5. `compare-scene.mjs` for each animated scene: same density, size, colour and motion at the same time.
+   `compare-motion.mjs` on every page: same animated blocks and kinds, nothing stuck invisible.
+   A text diff of every source page against the bundle: no missing strings except intended edits.
 6. Interactions checked by hand: cursor states, hover states, header scroll change, mobile menu, forms
    (each step), maps, carousels, accordions, tabs.
 

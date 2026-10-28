@@ -39,6 +39,7 @@ Everything you need is in this skill folder:
 | `scripts/compare-layout.mjs` | Geometry of every heading, paragraph and image (x, width, height, gap above) on both sites: wrong column spans, aspect ratios, spacing. |
 | `scripts/side-by-side.mjs` | Full-page screenshots cut into source-left / Atrium-right strips for the one-to-one visual audit. |
 | `scripts/compare-scene.mjs` | Captures a WebGL/canvas animation and its port at the same simulated time. |
+| `scripts/compare-motion.mjs` | Lists which blocks animate on scroll in the source vs Atrium (reveal, word mask, image mask, stagger) and anything a reveal leaves invisible. |
 | `scripts/logo-outline.py` | Rebuilds the logo lockup with its text as outlines in the source fonts (SVG in `<img>` can't use web fonts). |
 | `examples/rosewood-courtyard/` | A complete, valid bundle (Atrium demo site) to copy patterns from. |
 | `examples/design-bridge/` | A real conversion's bridge CSS (`site.css`) and site script (`site-ui.js`: breadcrumbs + floating WhatsApp button) to adapt. |
