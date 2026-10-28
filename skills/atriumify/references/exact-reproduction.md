@@ -188,6 +188,49 @@ aria-label strings and compare with every string in the bundle; anything missing
 - Deleting media in the admin deletes the files from storage (permanent); deleting a website archives it
   (soft delete) and removes its domain records — re-add the custom domain to the new site.
 
+### 3.15 Site-script engineering (each was a live bug)
+- **Never write the DOM on pointermove or scroll** unless a value changed. A cursor that rewrote its label
+  on every move woke the script's MutationObserver, which re-ran every module ~30×/s and made the cursor
+  and scrolling sluggish. Have the observer ignore mutations inside the script's own widgets (cursor,
+  floating buttons, canvases, lightboxes).
+- **Never mix clocks.** `requestAnimationFrame` timestamps are frame-start times, earlier than
+  `performance.now()` in an event handler: a tween started from `performance.now()` gets negative
+  progress and the element stops moving while the pointer moves. Take times from the frame clock only, or
+  skip easing: users judged a 350ms trailing cursor (the source's `quickTo`) as sluggish — put the dot on
+  the pointer.
+- **Iframes** (embedded maps, videos) swallow pointer events: hide the custom cursor on `pointerover` of an
+  iframe, or the dot freezes at the edge while the user cannot see a cursor.
+- **Link to the current page:** a header logo linking to `/` does nothing on the home page in Atrium; the
+  source's router scrolls to the top. Scroll up (smoothly when the source sets `scroll-behavior: smooth`).
+  Atrium's link handler calls `preventDefault`, so don't bail on `e.defaultPrevented`.
+- **Routes:** read the page path through one `route()` helper that first honours
+  `<html data-atrium-path>` (the editor's live preview runs scripts in an `about:srcdoc` canvas).
+- **Budgets:** 50,000 characters per script and 100,000 for custom CSS. Split modules across scripts
+  (UI / booking / directories) early; keep a size tally.
+
+### 3.16 Inline SVG in custom CSS
+Atrium's sanitizer rewrites every `url(` inside a CSS value to `x-blocked(`, including `url(#gradient)`
+references *inside* a `data:image/svg+xml` URI. Percent-encode `#` (`%23`) **and** the parentheses
+(`url%28%23a%29`), quote attributes with `'`, and check the result renders with colour, not just opaque
+pixels.
+
+### 3.17 Galleries and media
+- Atrium splits photographs and films into separate sections (image gallery + video blocks with players
+  and captions). A source gallery that mixes them in one grid (posters, duration badges, a feature tile,
+  one lightbox) must be rebuilt as one grid from the existing media URLs.
+- Check `srcset` on the published site: if images ship without responsive variants, full-size originals
+  load everywhere and grids appear empty for seconds — report it as a platform issue.
+
+### 3.18 Editor parity and re-imports
+- Script-built UI is invisible in the editor unless the site uses the editor's live preview; tell the user,
+  and prefer native components for anything they will edit (galleries, filters, forms).
+- Import through the admin UI; a zip over the browser tool's upload limit can be split, re-joined in the
+  page (`new Blob(parts)`) and checked by SHA-256 before submitting.
+- Imported media lands in the organization library (not the website), and identical files are reused, so
+  deleting or purging an old site does not remove media the new site uses.
+- Before publishing, read the pre-publish checks: forms without a notification recipient silently email
+  nobody.
+
 ## 4. Gates: the site is not done until all pass, at 1440px and 390px, on every page
 
 1. `compare-typography.mjs`: no family/size/weight/line-height differences left except noted noise.
