@@ -1,5 +1,8 @@
 # Design fidelity: making the Atrium site look exactly like the source
 
+> Read `exact-reproduction.md` first: rules against inventing UI, the component inventory, every lesson
+> from real misses, and the gates that must pass before the site is done.
+
 Mapping sections onto components gets the structure right. It does **not** make the site look like the
 source: Atrium renders every component with its own design system, and its defaults differ from almost
 every hand-built site. Without the steps below, a converted site has the right fonts but the wrong sizes,
@@ -112,8 +115,8 @@ The script must follow these rules (each one caused a real bug):
 2. **Re-apply after client-side navigation.** Pages change without a reload, so observe
    `document.documentElement` with a `MutationObserver` and re-run idempotently (mark inserted nodes,
    e.g. `data-path`, and skip when already correct).
-3. **Throttle with `setTimeout`, never `requestAnimationFrame`.** rAF does not fire in hidden or embedded
-   views; the feature then never appears.
+3. **Schedule DOM work with `setTimeout`, not `requestAnimationFrame`.** rAF does not fire in hidden or
+   embedded views; the feature then never appears. (A canvas render loop may use rAF.)
 4. **Support preview URLs.** Previews live under `/_preview/<token>/…` (and dev under `/_site/<slug>/…`):
    strip that prefix before matching paths and add it back to generated links.
 5. Wrap the work in `try/catch` so a mistake never breaks the page; no external requests; style the

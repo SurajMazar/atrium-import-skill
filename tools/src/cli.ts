@@ -290,7 +290,7 @@ async function validate(input: string): Promise<Report> {
   }
   sampleDefaults(loose.data, r);
   crossCheck(def, r);
-  designChecks(def, r);
+  designChecks(def, r, files);
   r.stats.pages = def.pages.length;
   r.stats.sections = def.pages.reduce((n, p) => n + p.sections.length, 0);
   r.stats.forms = def.forms.length;
@@ -308,7 +308,7 @@ const RENDERER_CLASSES = new Set<string>([
 const knownClass = (c: string) => RENDERER_CLASSES.has(c) || [...RENDERER_CLASSES].some((k) => k.endsWith('-') && c.startsWith(k)) || /^a-(n|tone|pt|pb|r|text|gap|cols|aspect)-/.test(c);
 
 /** Design-bridge and site-script checks (see references/design-fidelity.md). */
-function designChecks(def: WebsiteDefinition, r: Report) {
+function designChecks(def: WebsiteDefinition, r: Report, files: Map<string, Buffer>) {
   const sheets: Array<[string, string]> = [['site customCss', def.customCss ?? '']];
   for (const p of def.pages) if (p.customCss) sheets.push([`pages.${p.slug || 'home'}.customCss`, p.customCss]);
   for (const [where, css] of sheets) {
@@ -329,9 +329,23 @@ function designChecks(def: WebsiteDefinition, r: Report) {
     const px = (power: number) => Math.round(baseSize * scale ** power * 10) / 10;
     r.info.push(`No design bridge in site customCss: Atrium's modular type scale gives labels ${px(-2)}px, nav/buttons ${px(-1)}px, h3 ${px(3)}px, h2 ${px(5)}px, hero h1 ${px(7)}px. If the source uses fixed sizes, override --a-text-* (references/design-fidelity.md).`);
   }
+  // Logos are shown through <img>, which cannot load web fonts: live <text> renders in a fallback font.
+  // Read the raw site.json: the normalized URL schema does not keep asset: references.
+  const rawSite = [...files].find(([n]) => n === 'site.json' || n.endsWith('/site.json'))?.[1];
+  let branding: Record<string, unknown> = {};
+  try { branding = (JSON.parse(rawSite?.toString('utf8') ?? '{}') as { settings?: { branding?: Record<string, unknown> } }).settings?.branding ?? {}; } catch { /* reported elsewhere */ }
+  for (const key of ['logo', 'logoInverse']) {
+    const ref = branding[key];
+    const src = typeof ref === 'string' ? ref : (ref as { src?: string } | undefined)?.src;
+    if (!src?.startsWith('asset:') || !/\.svg$/i.test(src)) continue;
+    const buf = [...files].find(([n]) => n.endsWith('assets/' + src.slice(6)))?.[1];
+    if (buf && /<text[\s>]/.test(buf.toString('utf8'))) r.errors.push(`settings.branding.${key} (${src}) contains <text>: an SVG shown through <img> cannot use the site's web fonts, so the wordmark renders in a fallback font at the wrong size. Convert the text to outlines with scripts/logo-outline.py.`);
+  }
   for (const s of def.settings.scripts ?? []) {
     if (!s.code) continue;
-    if (/requestAnimationFrame/.test(s.code)) r.warnings.push(`Script "${s.name}": requestAnimationFrame does not fire in hidden or embedded views; schedule with setTimeout.`);
+    if (s.code.length > 50_000) r.errors.push(`Script "${s.name}" is ${s.code.length} characters; the limit is 50,000.`);
+    if (/requestAnimationFrame/.test(s.code) && !/setTimeout/.test(s.code)) r.warnings.push(`Script "${s.name}": requestAnimationFrame does not fire in hidden or embedded views; schedule DOM work with setTimeout (rAF only for canvas render loops).`);
+    if (/<script[^>]+src=|import\(\s*['"]https?:|https?:\/\/(cdn\.|unpkg\.com|cdnjs\.|esm\.sh|skypack)/i.test(s.code)) r.errors.push(`Script "${s.name}" loads code from a CDN. Port the code into the script itself (references/exact-reproduction.md §1).`);
     if (/document\.(body|querySelector)/.test(s.code) && !/__reactFiber/.test(s.code)) r.warnings.push(`Script "${s.name}" changes the DOM without waiting for hydration; check for __reactFiber keys first (references/design-fidelity.md §4).`);
   }
 }

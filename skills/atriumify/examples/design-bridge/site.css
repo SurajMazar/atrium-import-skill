@@ -1,10 +1,3 @@
-/*
- * Worked example: the design bridge from a real conversion (Next.js + Tailwind 4 resort site).
- * Brand values are Peace Glory's; replace them with the values measured from your source.
- * Sections: tokens, headings, eyebrows, header, buttons, layouts, bento grid, footer, breadcrumbs,
- * floating button, typography passes found with scripts/compare-typography.mjs.
- * Selectors are real renderer classes (references/renderer-classes.md).
- */
 body.atrium-site {
   --a-text-xs: .75rem;
   --a-text-sm: .875rem;
@@ -230,3 +223,173 @@ body.atrium-site .a-hero__sub { color: rgba(253, 252, 251, .9); }
 body.atrium-site .a-hero .a-eyebrow { color: rgba(253, 252, 251, .75); }
 body.atrium-site .a-cta .a-intro__sub { color: rgba(253, 252, 251, .85); }
 body.atrium-site .a-hcard__caption .a-small { color: rgba(253, 252, 251, .8); }
+
+/* Site UI pass 2: hero layers, scenes, seal, scroll cue, cursor, farm band, location terrain box */
+body.atrium-site .a-hero--pos-center .a-overlay { opacity: 1; background: linear-gradient(to top, rgba(16, 31, 26, .8) 0%, rgba(16, 31, 26, .2) 33.333%, rgba(16, 31, 26, 0) 66.667%), rgba(0, 0, 0, .3); }
+body.atrium-site .a-hero:not(.a-hero--pos-center) .a-overlay { opacity: 1; background: linear-gradient(to top, rgba(16, 31, 26, .95) 0%, rgba(16, 31, 26, .45) 37.5%, rgba(16, 31, 26, 0) 75%), rgba(16, 31, 26, .45); }
+body.atrium-site .pg-scene { position: absolute; inset: 0; width: 100%; height: 100%; pointer-events: none; }
+body.atrium-site .a-hero__cue { display: none; }
+body.atrium-site .pg-cue { position: absolute; left: 50%; bottom: 2.5rem; z-index: 10; display: flex; align-items: center; justify-content: center; width: 3rem; height: 3rem; margin-left: -1.5rem; border: 1px solid rgba(253, 252, 251, .5); border-radius: 9999px; color: var(--pg-offwhite); transition: background-color .3s; }
+body.atrium-site .pg-cue:hover { background: rgba(253, 252, 251, .1); }
+@media (prefers-reduced-motion: no-preference) { body.atrium-site .pg-cue { animation: pg-bounce 1s infinite; } }
+@keyframes pg-bounce { 0%, 100% { transform: translateY(-25%); animation-timing-function: cubic-bezier(.8, 0, 1, 1); } 50% { transform: none; animation-timing-function: cubic-bezier(0, 0, .2, 1); } }
+
+body.atrium-site .pg-seal { position: relative; display: flex; align-items: center; justify-content: center; border: 1px solid rgba(140, 138, 132, .1); border-radius: 9999px; background: #f4f1ea; box-shadow: 0 4px 24px rgba(16, 31, 26, .08); color: var(--a-color-primary); }
+body.atrium-site .pg-seal__ring { position: absolute; inset: 0; width: 100%; height: 100%; animation: pg-seal-spin 20s linear infinite; }
+body.atrium-site .pg-seal__ring text { font-family: var(--a-font-body); font-size: 9px; letter-spacing: .1em; text-transform: uppercase; fill: var(--a-color-primary); }
+@keyframes pg-seal-spin { to { transform: rotate(360deg); } }
+@media (prefers-reduced-motion: reduce) { body.atrium-site .pg-seal__ring { animation: none; } }
+body.atrium-site .pg-seal-host { position: relative; }
+body.atrium-site .pg-seal-pos { position: absolute; z-index: 2; pointer-events: none; }
+body.atrium-site .pg-seal-block { display: flex; justify-content: center; margin-top: 2.5rem; }
+body.atrium-site .a-text2__head .pg-seal-block { justify-content: flex-start; }
+body.atrium-site .a-footer__bottom { align-items: center; }
+body.atrium-site .pg-seal-foot { flex-shrink: 0; }
+body.atrium-site [data-min="sm"] { display: none; }
+body.atrium-site [data-min="md"] { display: none; }
+body.atrium-site [data-min="lg"] { display: none; }
+@media (min-width: 40rem) { body.atrium-site .pg-seal-pos[data-min="sm"] { display: block; } }
+@media (min-width: 48rem) { body.atrium-site .pg-seal-block[data-min="md"] { display: flex; } }
+@media (min-width: 64rem) { body.atrium-site .pg-seal-pos[data-min="lg"] { display: block; } body.atrium-site .pg-seal-block[data-min="lg"] { display: flex; } }
+@media (max-width: 39.99rem) { body.atrium-site .a-footer__bottom { flex-direction: column-reverse; align-items: flex-start; } }
+
+/* Farm: "A farm shaped by its valley" is a light band over the terrain (farm/page.tsx) */
+body.atrium-site .a-parallax-band { min-height: 70svh; display: flex; align-items: center; justify-content: center; padding-block: 6rem; color: var(--a-color-text); }
+body.atrium-site .a-parallax-band .a-overlay { opacity: 1; background: rgba(252, 249, 242, .7); }
+body.atrium-site .a-parallax-band .a-parallax__inner { position: relative; z-index: 10; max-width: 42rem; text-align: center; }
+body.atrium-site .a-parallax-band .a-eyebrow { color: var(--pg-stone); }
+body.atrium-site .a-parallax-band .a-heading { color: var(--a-color-primary); font-size: var(--a-text-4xl); line-height: 1.25; }
+body.atrium-site .a-parallax-band .a-lead { color: #424845; font-size: var(--a-text-base); line-height: 1.625; margin-inline: auto; }
+
+/* Location: terrain box with its label inside (location/page.tsx) */
+body.atrium-site .a-image .a-frame:has(.pg-terrain-label) { aspect-ratio: 4 / 3; border: 1px solid #c2c8c4; border-radius: 4px; }
+body.atrium-site .a-image:has(.pg-terrain-label) figcaption { display: none; }
+body.atrium-site .pg-terrain-shade { position: absolute; inset: 0; background: rgba(252, 249, 242, .6); pointer-events: none; }
+body.atrium-site .a-frame .pg-scene { z-index: 1; }
+body.atrium-site .pg-terrain-label { position: absolute; inset: auto 0 0 0; z-index: 2; padding: 1.5rem; background: linear-gradient(to top, #fcf9f2, rgba(252, 249, 242, .7), rgba(252, 249, 242, 0)); pointer-events: none; }
+body.atrium-site .pg-terrain-label p:first-child { font-size: .75rem; line-height: 1rem; font-weight: 600; letter-spacing: .1em; text-transform: uppercase; color: var(--pg-stone); }
+body.atrium-site .pg-terrain-label p:last-child { margin-top: .25rem; font-family: var(--a-font-heading); font-size: 1.5rem; line-height: 2rem; font-weight: 500; color: var(--a-color-primary); }
+
+/* Custom cursor (CustomCursor) */
+html[data-pg-cursor], html[data-pg-cursor] a, html[data-pg-cursor] button { cursor: none; }
+#pg-cursor { position: fixed; left: 0; top: 0; z-index: 90; pointer-events: none; mix-blend-mode: difference; transition: transform .35s cubic-bezier(.33, 1, .68, 1); will-change: transform; }
+#pg-cursor > span { display: flex; align-items: center; justify-content: center; width: 12px; height: 12px; transform: translate(-50%, -50%); border: 1px solid #fdfcfb; border-radius: 9999px; background: rgba(253, 252, 251, .1); color: #fdfcfb; font-family: var(--a-font-body); font-size: 10px; line-height: 1; letter-spacing: .1em; text-transform: uppercase; opacity: 0; transition: width .3s ease-out, height .3s ease-out, opacity .3s ease-out; }
+#pg-cursor.is-visible > span { opacity: 1; }
+#pg-cursor.is-link > span { width: 44px; height: 44px; }
+#pg-cursor.is-label > span { width: 72px; height: 72px; }
+
+/* Pass 7: buttons as CTAButton draws them. Filled variants have no border (md 44px, lg 52px), outlines add 1px; size="lg" is used by the hero, CTA bands, form submits, the booking panel and the menu; withArrow puts the original arrow glyph 8px after the label, except on the second button of a pair */
+body.atrium-site { --pg-arrow: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='1.4' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M4 12h16m0 0-6-6m6 6-6 6'/%3E%3C/svg%3E"); }
+body.atrium-site .a-btn { gap: .5rem; }
+body.atrium-site .a-btn--primary, body.atrium-site .a-btn--secondary { border-width: 0; }
+body.atrium-site :is(.a-hero__actions, .a-cta--image-background .a-actions, .a-fm__submit, .a-header__drawer-foot) .a-btn:not(.a-btn--link), body.atrium-site aside.a-box:not(:has(.a-image)) .a-btn--block { padding: 1rem 2rem; }
+body.atrium-site .a-btn > .a-btn__icon:last-child { display: none; }
+body.atrium-site .a-btn:not(.a-btn--sm):not(.a-actions > .a-btn ~ .a-btn)::after { content: ""; flex: 0 0 16px; width: 16px; height: 16px; background: currentColor; -webkit-mask: var(--pg-arrow) center / contain no-repeat; mask: var(--pg-arrow) center / contain no-repeat; transition: transform .3s ease-out; }
+body.atrium-site .a-btn:hover::after { transform: translateX(4px); }
+body.atrium-site :is(.a-tone-inverse, .a-tone-primary, .a-cta--image-background, .a-on-media, .a-header__drawer) .a-btn--primary { box-shadow: var(--pg-shadow-float); }
+body.atrium-site :is(.a-tone-inverse, .a-tone-primary, .a-hero, .a-cta--image-background, .a-on-media, .a-header__drawer) .a-btn--primary:hover { --b-bg: #e5e2db; --b-bd: #e5e2db; --b-fg: var(--a-color-primary); }
+body.atrium-site .a-header__drawer-foot .a-btn { width: 100%; }
+body.atrium-site .a-btn--link, body.atrium-site .a-btn--link:hover { background-image: none; border: 0; border-bottom: 1px solid rgba(140, 138, 132, .3); border-radius: 0; transition: border-color .3s, color .3s; }
+body.atrium-site .a-btn--link:hover { border-bottom-color: var(--a-color-primary); }
+body.atrium-site :is(.a-tone-inverse, .a-tone-primary, .a-hero, .a-on-media) .a-btn--link { border-bottom-color: rgba(253, 252, 251, .4); }
+
+/* Header: "Book now" is the light button over the hero and the solid one once scrolled; the active link keeps the 80% tone over the hero */
+body.atrium-site .a-header--overlay:not(.is-scrolled) .a-header__cta { --b-bg: var(--pg-offwhite); --b-fg: var(--a-color-primary); --b-bd: var(--pg-offwhite); }
+body.atrium-site .a-header--overlay:not(.is-scrolled) .a-header__cta:hover { --b-bg: #e5e2db; --b-bd: #e5e2db; }
+body.atrium-site .a-header--overlay:not(.is-scrolled) .a-nav__link.is-current { color: rgba(253, 252, 251, .8); }
+
+/* Home hero (HomeHero): copy centred in the viewport, 768px wide, buttons 40px below the text with a 16px gap */
+body.atrium-site .a-hero--pos-center .a-hero__inner { padding-block: 4.5rem; }
+body.atrium-site .a-hero--pos-center .a-hero__copy { max-width: 48rem; }
+body.atrium-site .a-hero--pos-center .a-hero__heading { max-width: none; }
+body.atrium-site .a-hero--pos-center .a-hero__actions { margin-top: 1rem; gap: 1rem; }
+@media (max-width: 39.99rem) { body.atrium-site .a-hero--pos-center .a-hero__actions { flex-direction: column; align-items: center; } }
+
+/* Pass 8: section layouts from HomeSections.tsx and the shared cards. Sections are py-20 / md:py-section-gap (80 / 120px); grids use the 12-column, 24px-gutter layout */
+body.atrium-site { --a-space-section: 5rem; }
+@media (min-width: 48rem) { body.atrium-site { --a-space-section: 7.5rem; } }
+
+/* Text + image splits: copy spans 5 columns, the image 6, with one empty column between */
+body.atrium-site .a-split__grid { gap: 3rem; }
+body.atrium-site .a-benefits--with-image .a-split__media { aspect-ratio: 5 / 4 !important; }
+body.atrium-site .a-benefits--with-image .a-split__copy { display: block; }
+body.atrium-site .a-benefits--with-image .a-split__copy > .a-intro { margin-bottom: 0; }
+body.atrium-site .a-benefits--with-image .a-split__copy > :is(.a-blist, .a-actions) { margin-top: 2.5rem; }
+@media (min-width: 48rem) {
+  body.atrium-site .a-split__grid { display: grid; grid-template-columns: repeat(12, minmax(0, 1fr)); column-gap: 1.5rem; align-items: center; }
+  body.atrium-site .a-split--right .a-split__grid > .a-split__copy { grid-column: 1 / span 5; grid-row: 1; }
+  body.atrium-site .a-split--right .a-split__grid > :is(.a-split__media, .a-split__collage) { grid-column: 7 / span 6; grid-row: 1; }
+  body.atrium-site :not(.a-split--right) > .a-container > .a-split__grid > :is(.a-split__media, .a-split__collage) { grid-column: 1 / span 6; grid-row: 1; }
+  body.atrium-site :not(.a-split--right) > .a-container > .a-split__grid > .a-split__copy { grid-column: 8 / span 5; grid-row: 1; }
+}
+
+/* Section heading with an action (SectionHeading action): the button sits at the right of the intro from md, and full width under the grid below md */
+body.atrium-site .a-container:has(> .a-intro--left):has(> .a-section__actions:not(.a-actions--center)) > .a-section__actions { margin-top: 2.5rem; }
+@media (max-width: 47.99rem) { body.atrium-site .a-container:has(> .a-intro--left) > .a-section__actions:not(.a-actions--center) .a-btn { width: 100%; } }
+@media (min-width: 48rem) {
+  body.atrium-site .a-container:has(> .a-intro--left):has(> .a-section__actions:not(.a-actions--center)) { display: grid; grid-template-columns: minmax(0, 1fr) auto; column-gap: 1.5rem; row-gap: 0; align-items: end; }
+  body.atrium-site .a-container:has(> .a-intro--left):has(> .a-section__actions:not(.a-actions--center)) > * { grid-column: 1 / -1; }
+  body.atrium-site .a-container:has(> .a-intro--left):has(> .a-section__actions:not(.a-actions--center)) > .a-intro--left { grid-column: 1; grid-row: 1; max-width: 36rem; }
+  body.atrium-site .a-container:has(> .a-intro--left):has(> .a-section__actions:not(.a-actions--center)) > .a-section__actions { grid-column: 2; grid-row: 1; margin: 0; }
+}
+body.atrium-site .a-intro:has(+ :is(.a-grid, .a-features__grid, .a-features__cards, .a-rooms__grid, .a-exp__grid, .a-testimonials__grid)) { margin-bottom: 0; }
+body.atrium-site .a-intro + :is(.a-grid, .a-features__grid, .a-features__cards, .a-rooms__grid, .a-exp__grid, .a-testimonials__grid) { margin-top: 4rem; }
+body.atrium-site .a-intro__sub { margin-top: 0; }
+
+/* AccommodationCard: 16:9 image, 24px to the title, tagline, chips, and the arrow-outward glyph at the top right */
+body.atrium-site .a-rooms__grid { gap: 3rem !important; }
+body.atrium-site .a-room { gap: 1.5rem; }
+body.atrium-site .a-room__body { position: relative; gap: 0; padding-right: 2.375rem; }
+body.atrium-site .a-room__body::after { content: ""; position: absolute; top: 4px; right: 0; width: 22px; height: 22px; background: var(--pg-stone); -webkit-mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='1.4' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M7 17 17 7M9 7h8v8'/%3E%3C/svg%3E") center / contain no-repeat; mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='1.4' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M7 17 17 7M9 7h8v8'/%3E%3C/svg%3E") center / contain no-repeat; transition: background-color .3s; }
+body.atrium-site .a-room:hover .a-room__body::after { background: var(--a-color-primary); }
+body.atrium-site .a-room__summary { margin-top: .5rem; font-size: 1rem; line-height: 1.5; color: #424845; }
+body.atrium-site .a-room__cta { display: none !important; }
+body.atrium-site .pg-chips { display: flex; flex-wrap: wrap; gap: .5rem; margin-top: 1rem; }
+body.atrium-site .pg-chip { display: inline-block; padding: .25rem .75rem; border-radius: .75rem; background: #f1eee7; color: #424845; font-family: var(--a-font-body); font-size: .75rem; line-height: 1rem; font-weight: 600; letter-spacing: .1em; text-transform: uppercase; }
+
+/* Sustainability pillars: 1px hairlines between cells (gap-px on the outline colour), rounded, no outer border */
+body.atrium-site .a-features--grid .a-features__grid { border: 0; border-radius: 4px; overflow: hidden; }
+body.atrium-site .a-features--grid .a-feature p { line-height: 1.5; }
+
+/* Surroundings cards: 32px gaps */
+body.atrium-site .a-features__cards { gap: 2rem !important; }
+
+/* Gallery preview: first image 16:10 (4:3 below md), the rest square; 24px gaps (16px below md) */
+body.atrium-site .a-grid:has(> figure.a-image > a.a-image__link[href$="/gallery"]) { gap: 1rem !important; align-items: start; }
+body.atrium-site .a-grid:has(> figure.a-image > a.a-image__link[href$="/gallery"]) > figure:first-child .a-frame { aspect-ratio: 4 / 3 !important; }
+@media (min-width: 48rem) {
+  body.atrium-site .a-grid:has(> figure.a-image > a.a-image__link[href$="/gallery"]) { gap: 1.5rem !important; }
+  body.atrium-site .a-grid:has(> figure.a-image > a.a-image__link[href$="/gallery"]) > figure:first-child .a-frame { aspect-ratio: 16 / 10 !important; }
+}
+
+/* TestimonialCard: white panel, 24px quote, one-line byline; the disclaimer sits under the cards */
+body.atrium-site .a-testimonials .a-container { display: flex; flex-direction: column; }
+body.atrium-site .a-testimonials .a-intro { display: contents; }
+body.atrium-site .a-testimonials .a-intro__heading { margin-top: 1rem; }
+body.atrium-site .a-testimonials .a-intro__sub { order: 3; max-width: none; margin: 2.5rem 0 0; text-align: center; font-size: .75rem !important; line-height: 1rem !important; font-weight: 600; letter-spacing: .1em; text-transform: uppercase; color: var(--pg-stone); }
+body.atrium-site .a-testimonials__grid { gap: 1.5rem !important; }
+body.atrium-site .a-testimonial__quote, body.atrium-site .a-testimonial__quote p { font-size: var(--a-text-2xl); line-height: 1.375; }
+body.atrium-site .a-testimonial__quote p::before { content: "\201C"; }
+body.atrium-site .a-testimonial__quote p::after { content: "\201D"; }
+body.atrium-site .a-testimonial__by { margin-top: 2rem; font-size: .75rem; line-height: 1rem; font-weight: 600; letter-spacing: .1em; text-transform: uppercase; color: var(--pg-stone); }
+body.atrium-site .a-testimonial__by > span { display: block; }
+body.atrium-site .a-testimonial__author, body.atrium-site .a-testimonial__role { display: inline; font: inherit; color: inherit; letter-spacing: inherit; text-transform: inherit; }
+body.atrium-site .a-testimonial__role::before { content: " \00B7 "; }
+
+/* Location teaser: image 6 columns at 16:10, copy from column 8 */
+body.atrium-site .a-columns:has(> figure.a-image:first-child + .a-stack) > figure .a-frame { aspect-ratio: 16 / 10 !important; height: auto; }
+@media (min-width: 48rem) {
+  body.atrium-site .a-columns:has(> figure.a-image:first-child + .a-stack) { display: grid; grid-template-columns: repeat(12, minmax(0, 1fr)); gap: 1.5rem; align-items: center; }
+  body.atrium-site .a-columns:has(> figure.a-image:first-child + .a-stack) > figure { grid-column: 1 / span 6; }
+  body.atrium-site .a-columns:has(> figure.a-image:first-child + .a-stack) > .a-stack { grid-column: 8 / span 5; }
+}
+
+/* Booking CTA band (BookingCTASection): py-32 / md:py-48, 768px column, display heading with a soft shadow, forest overlay at 55% */
+body.atrium-site .a-cta--image-background { padding-block: 8rem; }
+@media (min-width: 48rem) { body.atrium-site .a-cta--image-background { padding-block: 12rem; } }
+body.atrium-site .a-cta--image-background .a-overlay { opacity: 1; background: rgba(16, 31, 26, .55); }
+body.atrium-site .a-cta--image-background .a-cta__inner { max-width: 48rem; padding: 0 1.25rem; }
+body.atrium-site .a-cta--image-background .a-intro__heading { font-size: 2.5rem; line-height: 3rem; letter-spacing: -.01em; text-shadow: 0 2px 4px rgb(0 0 0 / .5); }
+@media (min-width: 48rem) { body.atrium-site .a-cta--image-background .a-intro__heading { font-size: 4rem; line-height: 4.5rem; letter-spacing: -.02em; } }
+body.atrium-site .a-cta--image-background .a-intro__sub { max-width: 36rem; margin: 1.5rem auto 0; }
+body.atrium-site .a-cta--image-background .a-actions { margin-top: 2.5rem; }

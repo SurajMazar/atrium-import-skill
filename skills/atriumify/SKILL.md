@@ -17,6 +17,11 @@ components. Your job is to rebuild the source project as that definition, with i
 user can upload one zip at **New website → Import** (or `atrium import-site site.zip`) and get an
 editable site that looks like the original.
 
+**The bar is an identical site.** The user compares it with the original one to one. Never invent UI,
+never swap in an Atrium default for something the source does differently, never load libraries from a
+CDN, and never call the site finished before the gates in `references/exact-reproduction.md` §4 pass.
+Read that file first: it lists every difference a real conversion missed.
+
 Everything you need is in this skill folder:
 
 | Path | Use it for |
@@ -26,9 +31,15 @@ Everything you need is in this skill folder:
 | `references/conversion-guide.md` | How to map HTML/React patterns, styles, fonts, forms and content onto Atrium. Read before mapping. |
 | `references/components.md` | Every component type with exact props (generated from Atrium). Read the index, then look up types with `grep -n "^### <type>$"`. Do not read it whole. |
 | `references/schemas.md` | Exact shapes of settings, theme, navigation, page, SEO, MediaRef, Link, style, animation, forms, collections, icon names, animation presets. |
+| `references/exact-reproduction.md` | **Read first.** No-invention rules, the component inventory, every lesson (buttons, header, grids, cards, footer, logo outlines, WebGL ports, admin mechanics) and the pass/fail gates. |
 | `references/design-fidelity.md` | **How to make it look exactly like the source**: why Atrium's defaults differ, the design bridge CSS, site scripts for missing UI, verification. Read before step 3. |
 | `references/renderer-classes.md` | Every class the renderer outputs and the design tokens it reads (generated). Use it to write the bridge. |
 | `scripts/compare-typography.mjs` | Measures every text element on two sites (source vs Atrium) at desktop and mobile and lists font/size/weight/line-height/case/colour differences and overflow. Needs Playwright. |
+| `scripts/compare-controls.mjs` | Every button/link on both sites: padding, size, border, shadow, colours, icon. `--inject` tests bridge CSS before saving. |
+| `scripts/compare-layout.mjs` | Geometry of every heading, paragraph and image (x, width, height, gap above) on both sites: wrong column spans, aspect ratios, spacing. |
+| `scripts/side-by-side.mjs` | Full-page screenshots cut into source-left / Atrium-right strips for the one-to-one visual audit. |
+| `scripts/compare-scene.mjs` | Captures a WebGL/canvas animation and its port at the same simulated time. |
+| `scripts/logo-outline.py` | Rebuilds the logo lockup with its text as outlines in the source fonts (SVG in `<img>` can't use web fonts). |
 | `examples/rosewood-courtyard/` | A complete, valid bundle (Atrium demo site) to copy patterns from. |
 | `examples/design-bridge/` | A real conversion's bridge CSS (`site.css`) and site script (`site-ui.js`: breadcrumbs + floating WhatsApp button) to adapt. |
 
@@ -43,7 +54,11 @@ Copy this checklist into your todo list and work through it in order.
    forms, repeated content (blog posts, team, listings) and all media (local files, imports, CSS
    backgrounds, remote URLs). For React/Vue/Svelte, read the **source** components and their data, not the
    build output. If the dev server can run, open each page and take screenshots for comparison later.
-   Write a short page-by-page inventory: page, slug, sections in order, media used.
+   Write a short page-by-page inventory: page, slug, sections in order, media used. Then write the
+   **component inventory** from exact-reproduction.md §2 (cursor, canvas/WebGL scenes, floating buttons,
+   breadcrumbs, seals, scroll cues, card chips/icons, every button call site with its size/variant/arrow,
+   header states, logo, multi-step forms and summary panels, maps, reveals) with a port plan for each.
+   Nothing on that list may silently disappear or be replaced by an Atrium default.
 2. **Scaffold**: `atrium-bundle init <out-dir> --name "<Site name>"` (`atrium-bundle presets` lists theme
    presets). Put the output **outside** the source project (`../<project>-atrium/`, as above) unless the
    user says otherwise.
@@ -60,8 +75,10 @@ Copy this checklist into your todo list and work through it in order.
    stay as they are: `pack` downloads them into the bundle.
 6. **Site** (`site.json`): `settings` (name, business details, SEO defaults, social links, logo and favicon
    as `asset:` URLs), `navigation.menus` (every item needs an `id`), `header` (`site-header`) and `footer`
-   (`site-footer`). UI with no component (breadcrumbs, floating chat/WhatsApp button) goes in
-   `settings.scripts` following design-fidelity.md §4 (start from `examples/design-bridge/site-ui.js`).
+   (`site-footer`). UI with no component (breadcrumbs, floating chat/WhatsApp button, cursor, scroll cue,
+   seals, card chips, WebGL scenes ported to canvas) goes in `settings.scripts` following design-fidelity.md
+   §4 (start from `examples/design-bridge/site-ui.js`). No CDN scripts. The logo must be an outlined SVG
+   (`scripts/logo-outline.py`), and `settings.name` the brand name.
 7. **Pages** (`pages/_home.json`, `pages/<slug>.json`): one file per route. Map each source section onto
    the most specific component (conversion guide → "Choosing components"), keep the real copy word for
    word, set `anchor` on nodes that in-page links target, and fill `seo` (title, description, ogImage).
@@ -75,11 +92,12 @@ Copy this checklist into your todo list and work through it in order.
    and unused files, compresses everything (deflate level 9) and then runs the validator. **Fix every
    ✗ error**, and review every ! warning (broken links, missing anchors, menu gaps, sample defaults that would show). Repeat
    until the report says *Valid*. Use `atrium-bundle validate <out-dir>` for quick checks while editing.
-9. **Verify against the source** when the source can run and the bundle has been imported (use the
-   draft Preview link): `node scripts/compare-typography.mjs <source-url> <preview-url>` from a folder
-   with Playwright, plus side-by-side screenshots of the header (top and scrolled), each section, an inner
-   page hero, the footer and the mobile menu at 1440px and 390px. Fix in Settings → Custom CSS / Scripts,
-   republish, re-run until only noise is left, then copy the final CSS and scripts back into `site.json`.
+9. **Verify against the source — mandatory gates** (exact-reproduction.md §4) once the bundle is
+   imported (use the draft Preview link), at 1440px and 390px, on every page: `compare-typography`,
+   `compare-controls`, `compare-layout`, `side-by-side` (look at every strip), `compare-scene` for each
+   animation, and the interaction checks. Test fixes with `--inject` before saving them in Settings →
+   Custom CSS / Scripts, re-run until only listed noise is left, then copy the final CSS and scripts back
+   into `site.json`. Do not hand the site over with known differences unreported.
 10. **Report** to the user (template below).
 
 ## Rules that prevent broken imports
@@ -129,7 +147,8 @@ Atrium bundle ready: <path>.zip (<size> MB, limit 300 MB)
 - Pages: <n> (<list of slugs>)
 - Media: <n> files, <before> MB → <after> MB
 - Forms / collections: <…>
-- Design: bridge CSS <n> rules; site scripts: <list>; typography diffs left: <n> (noise / reasons)
+- Design: bridge CSS <n> rules; site scripts: <list>
+- Gates (1440 / 390): typography <n>, controls <n>, layout <n> diffs left; side-by-side audited: <pages>; scenes: <ok/n>
 - Not reproduced exactly: <list, with what was used instead>
 - Warnings left: <none | list>
 
