@@ -44,6 +44,16 @@ mkdir -p ~/.claude/skills && ln -s ~/atrium-import-skill/skills/atriumify ~/.cla
 Requirements: Node 18+. For media optimization, ImageMagick (or `cwebp`) and `ffmpeg`
 (macOS: `brew install imagemagick ffmpeg`). Without them, media are packed unchanged.
 
+## Looking like the original
+
+Converting sections into Atrium components gets the structure right, but Atrium's own design system
+(modular type scale, wider container, more spacing, its header, buttons and footer) makes a converted site
+look different even with the right fonts. The skill therefore always writes a **design bridge**: site CSS
+that sets Atrium's tokens and shared classes to the values measured from your project, plus a small site
+script for UI Atrium has no component for (breadcrumbs, a floating WhatsApp button). After import it
+compares both sites with `scripts/compare-typography.mjs`, element by element, at desktop and mobile
+widths. See `skills/atriumify/references/design-fidelity.md`.
+
 ## What's inside
 
 ```
@@ -53,9 +63,14 @@ skills/atriumify/
 ├── references/
 │   ├── bundle-format.md         zip layout, asset references, importer limits
 │   ├── conversion-guide.md      how to map HTML/React designs onto Atrium
+│   ├── design-fidelity.md       making the result look exactly like the source
 │   ├── components.md            every Atrium component and its exact props (generated)
-│   └── schemas.md               settings, theme, page, SEO, style, forms, icons, animations (generated)
-└── examples/rosewood-courtyard/ a complete valid bundle (Atrium demo site)
+│   ├── schemas.md               settings, theme, page, SEO, style, forms, icons, animations (generated)
+│   └── renderer-classes.md      every renderer class and the tokens it reads (generated)
+├── scripts/compare-typography.mjs  source vs Atrium typography diff (needs Playwright)
+└── examples/
+    ├── rosewood-courtyard/      a complete valid bundle (Atrium demo site)
+    └── design-bridge/           a real conversion's bridge CSS and breadcrumb/WhatsApp script
 tools/                           sources and build script for the generated files
 ```
 

@@ -16,8 +16,10 @@ import { THEME_PRESETS } from '@atrium/design-tokens';
 import { BUNDLE_FORMAT, BUNDLE_VERSION, parseSiteBundle } from '@atrium/exporter/bundle';
 import { unzip } from '@atrium/exporter/zip';
 import { WebsiteInputSchema, walkNodes, type Node, type WebsiteDefinition } from '@atrium/schema';
+import { RENDERER_CSS } from '@atrium/renderer-core/styles';
 
 declare const __ATRIUM_COMMIT__: string;
+declare const __RENDERER_SOURCE_CLASSES__: string[];
 
 // ── Importer limits (apps/api: websites.controller, export.service, bundle-assets.service, media) ──
 const LIMITS = {
@@ -288,11 +290,50 @@ async function validate(input: string): Promise<Report> {
   }
   sampleDefaults(loose.data, r);
   crossCheck(def, r);
+  designChecks(def, r);
   r.stats.pages = def.pages.length;
   r.stats.sections = def.pages.reduce((n, p) => n + p.sections.length, 0);
   r.stats.forms = def.forms.length;
   r.stats.collections = def.collections.length;
   return r;
+}
+
+/** Every class the renderer styles: custom CSS that targets anything else is probably a typo. */
+const RENDERER_CLASSES = new Set<string>([
+  ...[...RENDERER_CSS.matchAll(/\.(a-[a-z0-9_-]+)/g)].map((m) => m[1]!),
+  ...__RENDERER_SOURCE_CLASSES__,
+  ...registry.list().flatMap((d) => [`a-${d.type}`, ...(d.variants ?? []).map((v) => `a-${d.type}--${v.id}`)]),
+]);
+/** Classes built from template strings (`a-hero--${variant}`, `a-tone-${tone}`…) are matched by prefix. */
+const knownClass = (c: string) => RENDERER_CLASSES.has(c) || [...RENDERER_CLASSES].some((k) => k.endsWith('-') && c.startsWith(k)) || /^a-(n|tone|pt|pb|r|text|gap|cols|aspect)-/.test(c);
+
+/** Design-bridge and site-script checks (see references/design-fidelity.md). */
+function designChecks(def: WebsiteDefinition, r: Report) {
+  const sheets: Array<[string, string]> = [['site customCss', def.customCss ?? '']];
+  for (const p of def.pages) if (p.customCss) sheets.push([`pages.${p.slug || 'home'}.customCss`, p.customCss]);
+  for (const [where, css] of sheets) {
+    if (!css.trim()) continue;
+    if (where === 'site customCss' && css.length > 100_000) r.errors.push(`${where} is ${css.length} characters; the limit is 100,000.`);
+    if (/asset:/.test(css)) r.errors.push(`${where} references asset: inside CSS; asset references are only rewritten when they are a whole JSON string. Use a component image prop, style.backgroundImage, or an https media URL.`);
+    if (/@import/i.test(css)) r.warnings.push(`${where}: @import is removed by Atrium's CSS sanitizer (load fonts through the theme).`);
+    for (const m of css.matchAll(/url\(\s*["']?([^"')\s]+)/gi)) {
+      const u = m[1]!;
+      if (!/^(https:\/\/|\/(?!\/)|\.{0,2}\/|data:image\/(png|jpe?g|webp|gif|avif|svg\+xml)[;,])/i.test(u) && !u.startsWith('#')) r.warnings.push(`${where}: url(${u.slice(0, 60)}) is not allowed (https, relative or data:image only) and will be replaced with none.`);
+    }
+    const unknown = [...new Set([...css.matchAll(/\.(a-[a-z0-9_-]+)/g)].map((x) => x[1]!))].filter((c) => !knownClass(c));
+    if (unknown.length) r.warnings.push(`${where}: ${unknown.length} class(es) the renderer never outputs (typo?): ${unknown.slice(0, 10).map((c) => `.${c}`).join(' ')}. See references/renderer-classes.md.`);
+  }
+  const site = def.customCss ?? '';
+  const { baseSize, scale } = def.theme.typography;
+  if (!/--a-text-(xs|sm|4xl|6xl)\s*:/.test(site)) {
+    const px = (power: number) => Math.round(baseSize * scale ** power * 10) / 10;
+    r.info.push(`No design bridge in site customCss: Atrium's modular type scale gives labels ${px(-2)}px, nav/buttons ${px(-1)}px, h3 ${px(3)}px, h2 ${px(5)}px, hero h1 ${px(7)}px. If the source uses fixed sizes, override --a-text-* (references/design-fidelity.md).`);
+  }
+  for (const s of def.settings.scripts ?? []) {
+    if (!s.code) continue;
+    if (/requestAnimationFrame/.test(s.code)) r.warnings.push(`Script "${s.name}": requestAnimationFrame does not fire in hidden or embedded views; schedule with setTimeout.`);
+    if (/document\.(body|querySelector)/.test(s.code) && !/__reactFiber/.test(s.code)) r.warnings.push(`Script "${s.name}" changes the DOM without waiting for hydration; check for __reactFiber keys first (references/design-fidelity.md §4).`);
+  }
 }
 
 /**

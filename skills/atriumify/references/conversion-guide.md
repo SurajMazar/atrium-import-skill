@@ -63,6 +63,10 @@ Unsplash photos, a "Property film" title). Set every content prop the component 
 buttons, items. `validate` warns about each sample default that would show. Text can be `""` and lists
 `[]`; a default media object cannot be removed, so pick a variant that does not display it.
 
+**Buttons:** choose the Atrium `style` by role, then restyle it in the bridge: dark/solid → `primary`,
+light/white → `secondary` (Atrium paints `secondary` in the theme's secondary colour until restyled),
+bordered → `outline`, underlined text → `link`.
+
 Composition rules:
 - `page.sections` holds section-level nodes only. Custom layouts are `section` → layout block → elements.
 - One `hero` per page, normally first. Headings: one `h1` per page (the hero heading is the h1).
@@ -95,9 +99,11 @@ Composition rules:
 
 ## 4. Styling: closing the visual gap
 
-Work down this list and stop as soon as the result matches:
+Read **design-fidelity.md** first: the design bridge (site `customCss` that overrides Atrium's type scale,
+container, spacing, header, buttons and footer to the source's measured values) is required on every
+conversion, not an optional last step. Then, for anything specific:
 
-1. **Theme tokens** (above).
+1. **Theme tokens** (above) and the **design bridge**.
 2. **Component variant and props**: `variant`, `tone` (default / surface / surface-alt / inverse / primary /
    transparent band colour), `containerWidth`, `spacingTop`/`spacingBottom`, `columns`, `aspect`, `align`…
 3. **`node.style`**: padding, margin, gap, maxWidth, minHeight, background, backgroundImage, color,

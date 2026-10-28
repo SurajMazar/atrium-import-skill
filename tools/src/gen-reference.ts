@@ -8,6 +8,7 @@ import { readFileSync } from 'node:fs';
 import { ANIMATION_PRESETS } from '@atrium/animations';
 import { registry } from '@atrium/component-registry';
 import { ICON_ALIASES, ICON_DATA } from '@atrium/renderer-core/icons-data';
+import { RENDERER_CSS } from '@atrium/renderer-core/styles';
 import {
   AnimationSchema, CollectionDefinitionSchema, DEFAULT_BREAKPOINT_WIDTHS, FormDefinitionSchema, LinkSchema, MediaRefSchema, NavigationSchema,
   PageSeoSchema, RedirectSchema, SiteSettingsSchema, StyleSchema, ThemeTokensSchema, VisibilitySchema, PageInputSchema,
@@ -180,3 +181,43 @@ const icons = [...new Set([...Object.keys(ICON_DATA), ...Object.keys(ICON_ALIASE
 sm += `\n## Icon names\n\nValid values for every \`icon\` prop (${icons.length} names; lucide-style kebab-case). Anything else renders nothing.\n\n${icons.map((i) => `\`${i}\``).join(' ')}\n`;
 writeFileSync(path.join(outDir, 'schemas.md'), sm);
 console.log(`references: ${defs.length} components, ${sections.length} schemas`);
+
+// ── renderer-classes.md: every class the renderer styles, grouped by block, with the tokens it reads ──
+{
+  const rules = [...RENDERER_CSS.replace(/\/\*[\s\S]*?\*\//g, '').matchAll(/([^{}@]+)\{([^{}]*)\}/g)];
+  const blocks = new Map<string, { classes: Set<string>; tokens: Set<string> }>();
+  for (const [, sel, body] of rules) {
+    const classes = [...sel.matchAll(/\.(a-[a-z0-9_-]+)/g)].map((m) => m[1]!);
+    const tokens = [...body.matchAll(/var\((--a-[a-z0-9-]+)/g)].map((m) => m[1]!);
+    for (const c of classes) {
+      const block = c.replace(/(__|--).*$/, '');
+      const b = blocks.get(block) ?? { classes: new Set(), tokens: new Set() };
+      b.classes.add(c);
+      for (const t of tokens) b.tokens.add(t);
+      blocks.set(block, b);
+    }
+  }
+  const tokenNames = new Set<string>();
+  for (const m of RENDERER_CSS.matchAll(/var\((--a-[a-z0-9-]+)/g)) tokenNames.add(m[1]!);
+  let rc = `# Atrium renderer classes
+
+Generated from \`RENDERER_CSS\` of Atrium \`${commit}\` by \`tools/build.mjs\`. Do not edit by hand.
+
+Use these to write the design bridge (site \`customCss\`, see design-fidelity.md). Renderer rules are
+\`.atrium-site .a-…\`; prefix yours with \`body.atrium-site\` so they win. Classes ending in \`__x\` are parts,
+\`--x\` are variants/modifiers. State classes: \`.is-scrolled\`, \`.is-current\`, \`.is-open\`, \`.is-hidden\`.
+Tone wrappers: \`.a-tone-default|surface|surface-alt|inverse|primary\` set \`--t-bg --t-text --t-muted
+--t-border --t-btn-bg --t-btn-text\`; buttons read \`--b-bg --b-fg --b-bd\`.
+
+## Design tokens read by the renderer
+
+${[...tokenNames].sort().map((t) => `\`${t}\``).join(' ')}
+
+## Blocks
+`;
+  for (const [block, b] of [...blocks].sort(([a], [z]) => a.localeCompare(z))) {
+    rc += `\n**\`.${block}\`** — ${[...b.classes].filter((c) => c !== block).sort().map((c) => `\`.${c}\``).join(' ') || '(no parts)'}${b.tokens.size ? `\n  tokens: ${[...b.tokens].sort().join(' ')}` : ''}\n`;
+  }
+  writeFileSync(path.join(outDir, 'renderer-classes.md'), rc);
+  console.log(`renderer classes: ${blocks.size} blocks`);
+}

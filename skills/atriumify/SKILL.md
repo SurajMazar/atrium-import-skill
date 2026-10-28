@@ -25,8 +25,12 @@ Everything you need is in this skill folder:
 | `references/bundle-format.md` | Zip layout, manifest, `asset:` media references, limits. Read first. |
 | `references/conversion-guide.md` | How to map HTML/React patterns, styles, fonts, forms and content onto Atrium. Read before mapping. |
 | `references/components.md` | Every component type with exact props (generated from Atrium). Read the index, then look up types with `grep -n "^### <type>$"`. Do not read it whole. |
-| `references/schemas.md` | Exact shapes of settings, theme, navigation, page, SEO, MediaRef, Link, style, animation, forms, collections. |
+| `references/schemas.md` | Exact shapes of settings, theme, navigation, page, SEO, MediaRef, Link, style, animation, forms, collections, icon names, animation presets. |
+| `references/design-fidelity.md` | **How to make it look exactly like the source**: why Atrium's defaults differ, the design bridge CSS, site scripts for missing UI, verification. Read before step 3. |
+| `references/renderer-classes.md` | Every class the renderer outputs and the design tokens it reads (generated). Use it to write the bridge. |
+| `scripts/compare-typography.mjs` | Measures every text element on two sites (source vs Atrium) at desktop and mobile and lists font/size/weight/line-height/case/colour differences and overflow. Needs Playwright. |
 | `examples/rosewood-courtyard/` | A complete, valid bundle (Atrium demo site) to copy patterns from. |
+| `examples/design-bridge/` | A real conversion's bridge CSS (`site.css`) and site script (`site-ui.js`: breadcrumbs + floating WhatsApp button) to adapt. |
 
 Run the CLI as `node <this-skill-dir>/scripts/atrium-bundle.mjs <command>`; below it is written as `atrium-bundle`.
 
@@ -46,23 +50,37 @@ Copy this checklist into your todo list and work through it in order.
 3. **Theme** (`theme.json`): translate the source design tokens: colours to `colors.*`, fonts to
    `typography.heading/body` (Google family names, or bundled font files), radii, shadows, container
    widths. See the conversion guide for the mapping and the CSS variables.
-4. **Media**: copy every local image, video, font and PDF the site uses into `<out-dir>/assets/`, keeping
+4. **Design bridge** (`site.json` → `customCss`), **always**: measure the source's exact type sizes,
+   container width, side padding, section spacing, header, nav, buttons, eyebrows, headings, footer
+   (design-fidelity.md §1), then override Atrium's tokens and shared classes to those values (§3). Atrium's
+   modular type scale and wider container otherwise make every converted site look off even with the right
+   fonts. Start from `examples/design-bridge/site.css`.
+5. **Media**: copy every local image, video, font and PDF the site uses into `<out-dir>/assets/`, keeping
    readable names (`assets/images/hero.jpg`). Reference them as `"asset:images/hero.jpg"`. Remote URLs may
    stay as they are: `pack` downloads them into the bundle.
-5. **Site** (`site.json`): `settings` (name, business details, SEO defaults, social links, logo and favicon
+6. **Site** (`site.json`): `settings` (name, business details, SEO defaults, social links, logo and favicon
    as `asset:` URLs), `navigation.menus` (every item needs an `id`), `header` (`site-header`) and `footer`
-   (`site-footer`).
-6. **Pages** (`pages/_home.json`, `pages/<slug>.json`): one file per route. Map each source section onto
+   (`site-footer`). UI with no component (breadcrumbs, floating chat/WhatsApp button) goes in
+   `settings.scripts` following design-fidelity.md §4 (start from `examples/design-bridge/site-ui.js`).
+7. **Pages** (`pages/_home.json`, `pages/<slug>.json`): one file per route. Map each source section onto
    the most specific component (conversion guide → "Choosing components"), keep the real copy word for
    word, set `anchor` on nodes that in-page links target, and fill `seo` (title, description, ogImage).
    Use plain path links (`"/about"`, `"/#pricing"`). Contact forms become `forms/<slug>.json` with an
    explicit `id`, referenced by `formId`. Repeated content can become `collections/<slug>.json`.
-7. **Pack and validate**: `atrium-bundle pack <out-dir> -o <name>.zip`. It downloads remote media,
+   Pick text sizes and button styles by the source's measured values (a 16px paragraph is `size: "base"`,
+   18px is `"lg"`; light buttons are `secondary`, restyled in the bridge). When one component must look
+   different on one page than elsewhere, put that override in the page's `customCss`.
+8. **Pack and validate**: `atrium-bundle pack <out-dir> -o <name>.zip`. It downloads remote media,
    converts and resizes images (WebP, longest edge 2560 px), re-encodes video (H.264), removes duplicate
    and unused files, compresses everything (deflate level 9) and then runs the validator. **Fix every
    ✗ error**, and review every ! warning (broken links, missing anchors, menu gaps, sample defaults that would show). Repeat
    until the report says *Valid*. Use `atrium-bundle validate <out-dir>` for quick checks while editing.
-8. **Report** to the user (template below).
+9. **Verify against the source** when the source can run and the bundle has been imported (use the
+   draft Preview link): `node scripts/compare-typography.mjs <source-url> <preview-url>` from a folder
+   with Playwright, plus side-by-side screenshots of the header (top and scrolled), each section, an inner
+   page hero, the footer and the mobile menu at 1440px and 390px. Fix in Settings → Custom CSS / Scripts,
+   republish, re-run until only noise is left, then copy the final CSS and scripts back into `site.json`.
+10. **Report** to the user (template below).
 
 ## Rules that prevent broken imports
 
@@ -85,7 +103,10 @@ Copy this checklist into your todo list and work through it in order.
   `embed` only for third-party widgets (booking, maps, reviews). It requires the `code.manage` permission,
   and HTML mode strips scripts.
 - Tailwind classes and component-library classes do not exist in Atrium. Express styling through the theme
-  first, then variants and props, then `node.style`, then `customCss` (conversion guide → "Styling").
+  first, then the design bridge (site `customCss`, selectors prefixed `body.atrium-site`), then variants and
+  props, `node.style`, node and page `customCss` (conversion guide → "Styling", design-fidelity.md).
+- `asset:` never works inside CSS. `validate` reports it, plus unknown `.a-*` classes (typos) and site scripts
+  that skip the hydration check or use `requestAnimationFrame`.
 - Keep the original text, prices, phone numbers and links exactly. Do not invent content, testimonials or
   addresses. If something cannot be reproduced, say so in the report.
 
@@ -108,6 +129,7 @@ Atrium bundle ready: <path>.zip (<size> MB, limit 300 MB)
 - Pages: <n> (<list of slugs>)
 - Media: <n> files, <before> MB → <after> MB
 - Forms / collections: <…>
+- Design: bridge CSS <n> rules; site scripts: <list>; typography diffs left: <n> (noise / reasons)
 - Not reproduced exactly: <list, with what was used instead>
 - Warnings left: <none | list>
 

@@ -1,6 +1,6 @@
 # Atrium schemas
 
-Generated from `@atrium/schema` of Atrium `e00b89c` by `tools/build.mjs`. Do not edit by hand.
+Generated from `@atrium/schema` of Atrium `19f8721` by `tools/build.mjs`. Do not edit by hand.
 `?` = optional, `= x` = default (omit defaulted keys unless you need another value).
 `R<T>` = `T` or a responsive object `{ "base"?: T, "laptop"?: T, "tablet"?: T, "mobile"?: T }`.
 
