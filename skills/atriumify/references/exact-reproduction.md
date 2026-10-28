@@ -65,6 +65,13 @@ you will reproduce it. Search the source for each one; do not rely on screenshot
   active underline, the CTA variant (often light over the hero, solid when scrolled) and its shadow, the
   logo (light/dark), the menu button, the backdrop blur and border.
 - Mobile: the menu button, the drawer's links (font, size, colour), its CTA (label, size, full width, arrow).
+- Layout: the source bar is usually `justify-between` with a gap: logo, nav and actions spread evenly
+  (Atrium pushes the nav right). Bar height = padding + logo height (Atrium sets a 76px `min-height`).
+  The CTA's own breakpoint (often visible from `sm`, Atrium hides it below 768px).
+- **Never put `backdrop-filter`, `filter` or `transform` on `.a-header` without excluding `.is-open`**:
+  any of them makes the header the containing block of the fixed mobile drawer, which then opens squeezed
+  inside the 72px bar. Open the menu at 390px and compare it element by element (drawer background, link
+  size/opacity/dividers/icons, secondary links, CTA).
 
 ### 3.3 Section headings with an action
 `SectionHeading action={…}` puts the button at the right of the intro (`md:flex-row md:items-end
@@ -99,7 +106,11 @@ An SVG shown through `<img>` **cannot load web fonts**: `<text>` renders in a fa
 size. Always convert the wordmark to outlines with `scripts/logo-outline.py` (fontTools + HarfBuzz, the
 source's own font files, from `.next/static/media`, `public/fonts` or Google Fonts), at the measured sizes,
 tracking and line positions, for the dark and the inverse logo. The printed line widths must match the
-browser's text widths (to ~0.1px). Set the site logo width to the lockup width, and the website **name** to
+browser's text widths (to ~0.1px).
+If the media upload does not work, the lockup can be drawn by the bridge CSS instead: hide
+`.a-header__brand .a-brand__logo` and use background layers (mark URL + one outlined
+`data:image/svg+xml` per text line). Atrium drops any `url()` longer than **8,192 characters**: write the
+paths as relative commands in integer 0.1px units (≈5.6KB for an 11-letter Garamond line). Set the site logo width to the lockup width, and the website **name** to
 the brand name (it is used in "<name> — home" labels and titles), not the slug.
 
 ### 3.8 WebGL / three.js scenes
@@ -120,7 +131,9 @@ Port the scene's maths exactly, then verify with `compare-scene.mjs` (frozen clo
 ### 3.9 Admin and verification mechanics
 - Edit live sites in the admin UI (Settings → Custom CSS / Scripts / Branding, the page editor). Don't call
   the API with the admin's session token. Confirm each save: the "unsaved changes" bar must be gone.
-- Uploads through the media picker must come from a path the session can read (the scratchpad works).
+- Uploads through the media picker must come from a path the session can read (the scratchpad works). If an
+  upload sits at "0/1" with no `media/upload` request, it is the queue bug fixed in atrium-contabo fcf4d74
+  (deploy it) — meanwhile use the CSS fallback above for logos.
 - Test CSS and scripts **before saving** by injecting them into the preview (`--inject`, `--js`).
 - `requestAnimationFrame` does not run in hidden/embedded browser panes; schedule site-script work with
   `setTimeout` (scene render loops may use rAF).

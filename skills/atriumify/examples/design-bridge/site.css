@@ -393,3 +393,35 @@ body.atrium-site .a-cta--image-background .a-intro__heading { font-size: 2.5rem;
 @media (min-width: 48rem) { body.atrium-site .a-cta--image-background .a-intro__heading { font-size: 4rem; line-height: 4.5rem; letter-spacing: -.02em; } }
 body.atrium-site .a-cta--image-background .a-intro__sub { max-width: 36rem; margin: 1.5rem auto 0; }
 body.atrium-site .a-cta--image-background .a-actions { margin-top: 2.5rem; }
+
+/* Pass 9: header bar (SiteHeader): logo, nav and actions spread evenly (justify-between, gap-6); Book now and the menu button 12px apart; no border over the hero; the active link keeps the plain link colour (the source's class order), the menu button is forest once solid */
+body.atrium-site .a-header__bar { gap: 1.5rem; }
+body.atrium-site .a-header__brand { margin-right: auto; }
+body.atrium-site .a-header__nav { margin-right: auto; }
+body.atrium-site .a-header__toggle { margin: 0 0 0 -.75rem; }
+body.atrium-site .a-header--overlay:not(.is-scrolled) { border-bottom-width: 0; }
+body.atrium-site .a-header:is(.is-scrolled, :not(.a-header--overlay)) .a-nav__link.is-current { color: #424845; }
+body.atrium-site .a-header:is(.is-scrolled, :not(.a-header--overlay)) .a-nav__link:hover { color: var(--a-color-primary); }
+body.atrium-site .a-header:is(.is-scrolled, :not(.a-header--overlay)) .a-header__toggle { color: var(--a-color-primary); }
+@media (min-width: 40rem) { body.atrium-site .a-header__end .a-header__cta { display: inline-flex; } }
+@media (max-width: 39.99rem) { body.atrium-site .a-header__end .a-header__cta { display: none; } }
+
+/* Mobile menu (MobileMenu.tsx). A backdrop-filter on the header would make it the containing block of the fixed drawer, so the blur is dropped while the menu is open */
+body.atrium-site .a-header.is-open { -webkit-backdrop-filter: none !important; backdrop-filter: none !important; border-bottom-width: 0 !important; --hdr-bg: var(--a-color-primary); }
+body.atrium-site .a-header.is-open .a-header__toggle { color: var(--pg-offwhite); }
+body.atrium-site .a-header__drawer { display: flex; flex-direction: column; padding-top: 4.5rem; overflow: hidden; background: var(--a-color-primary); color: var(--pg-offwhite); }
+body.atrium-site .a-header__drawer[hidden] { display: none; }
+body.atrium-site .a-header__drawer-inner { flex: 1; min-height: 0; display: flex; flex-direction: column; gap: 0; padding: 0 1.25rem; max-width: none; }
+body.atrium-site .a-header__drawer nav { flex: 1; min-height: 0; display: flex; flex-direction: column; justify-content: center; gap: .25rem; overflow-y: auto; padding-block: 2rem; }
+body.atrium-site .a-mnav { display: flex; flex-direction: column; gap: .25rem; border-top: 0; }
+body.atrium-site .a-mnav > li { border-bottom: 1px solid rgba(253, 252, 251, .1); }
+body.atrium-site .a-mnav__link { align-items: baseline; padding: 1rem 0; font-size: 2.5rem; line-height: 3rem; letter-spacing: -.01em; color: rgba(253, 252, 251, .7); transition: color .3s; }
+body.atrium-site .a-mnav__link:hover, body.atrium-site .a-mnav a.is-current { color: var(--pg-offwhite); font-style: normal; opacity: 1; }
+body.atrium-site .a-mnav__link::after { content: ""; flex: 0 0 20px; width: 20px; height: 20px; background: rgba(253, 252, 251, .4); -webkit-mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='1.4' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M7 17 17 7M9 7h8v8'/%3E%3C/svg%3E") center / contain no-repeat; mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='1.4' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M7 17 17 7M9 7h8v8'/%3E%3C/svg%3E") center / contain no-repeat; transition: transform .3s; }
+body.atrium-site .a-mnav__link:hover::after { transform: translateX(4px); }
+body.atrium-site .pg-mnav2 { display: flex; flex-wrap: wrap; gap: .75rem 1.5rem; margin-top: 2rem; font-family: var(--a-font-body); font-size: 1rem; line-height: 1.5rem; }
+body.atrium-site .pg-mnav2 a { color: rgba(253, 252, 251, .7); text-decoration: underline; text-decoration-color: rgba(253, 252, 251, .3); text-underline-offset: 4px; transition: color .3s; }
+body.atrium-site .pg-mnav2 a:hover { color: var(--pg-offwhite); }
+body.atrium-site .a-header__drawer-foot { display: block; margin: 0; padding-bottom: 2.5rem; }
+body.atrium-site .a-header__drawer-foot > :not(.a-btn) { display: none; }
+body.atrium-site .a-header__drawer-foot .a-btn { --b-bg: var(--pg-offwhite); --b-fg: var(--a-color-primary); width: 100%; justify-content: center; }

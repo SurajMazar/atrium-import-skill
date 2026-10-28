@@ -121,6 +121,20 @@
     }
   }
 
+  // Mobile menu (MobileMenu): the secondary links under the primary ones, and the CTA label.
+  var MENU2 = [['Location', '/location'], ['Events', '/events'], ['Journal', '/journal'], ['FAQ', '/faq'], ['Contact', '/contact']];
+  function menuExtras() {
+    var nav = document.querySelector('.a-header__drawer nav'), base = route().base;
+    if (nav && !nav.querySelector('.pg-mnav2') && hydrated(nav)) {
+      var d = document.createElement('div');
+      d.className = 'pg-mnav2';
+      d.innerHTML = MENU2.map(function (l) { return '<a href="' + base + l[1] + '">' + l[0] + '</a>'; }).join('');
+      nav.appendChild(d);
+    }
+    var label = document.querySelector('.a-header__drawer-foot .a-btn__label');
+    if (label && label.textContent !== 'Book Your Stay' && hydrated(label.parentElement)) label.textContent = 'Book Your Stay';
+  }
+
   // Scroll cue on the home hero (HomeHero).
   function scrollCue() {
     if (route().path !== '/') return;
@@ -379,7 +393,7 @@
   var queued = false;
   function run() {
     queued = false;
-    var steps = [crumbs, whatsapp, cursor, roomChips, scrollCue, seals, scenes, terrainLabel];
+    var steps = [crumbs, whatsapp, cursor, roomChips, menuExtras, scrollCue, seals, scenes, terrainLabel];
     for (var i = 0; i < steps.length; i++) { try { steps[i](); } catch (e) { /* never break the page */ } }
   }
   function schedule() { if (!queued) { queued = true; setTimeout(run, 30); } }
