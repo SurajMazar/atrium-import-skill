@@ -249,6 +249,11 @@ pixels.
 - Expect 502s for media for a few minutes while a deploy restarts the API: don't audit screenshots taken
   then; re-check image status codes first.
 
+### 3.21 Measuring after publish
+Measure page and section heights after the `load` event and a full scroll, not at `DOMContentLoaded`:
+with full-size images still downloading, early readings were off by hundreds of pixels (and reveal
+animations had not fired), which looked like layout bugs that did not exist.
+
 ## 4. Gates: the site is not done until all pass, at 1440px and 390px, on every page
 
 1. `compare-typography.mjs`: no family/size/weight/line-height differences left except noted noise.

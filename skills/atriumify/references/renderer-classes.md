@@ -1,6 +1,6 @@
 # Atrium renderer classes
 
-Generated from `RENDERER_CSS` of Atrium `19f8721` by `tools/build.mjs`. Do not edit by hand.
+Generated from `RENDERER_CSS` of Atrium `dc4ce67` by `tools/build.mjs`. Do not edit by hand.
 
 Use these to write the design bridge (site `customCss`, see design-fidelity.md). Renderer rules are
 `.atrium-site .a-…`; prefix yours with `body.atrium-site` so they win. Classes ending in `__x` are parts,

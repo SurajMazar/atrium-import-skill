@@ -1,6 +1,6 @@
 # Atrium component reference
 
-Generated from the component registry of Atrium `19f8721` by `tools/build.mjs`. Do not edit by hand.
+Generated from the component registry of Atrium `dc4ce67` by `tools/build.mjs`. Do not edit by hand.
 
 Every node is `{ "type", "props", "children"?, "variant"?, "style"?, "animation"?, "customCss"?, "anchor"?, "name"? }`.
 Props are validated against the schemas below; **invalid props are silently replaced by defaults on import**,

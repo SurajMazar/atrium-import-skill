@@ -60,7 +60,12 @@ const scan = (dir) => {
   for (const e of readdirSync(dir, { withFileTypes: true })) {
     const full = path.join(dir, e.name);
     if (e.isDirectory()) scan(full);
-    else if (/\.(tsx?|ts)$/.test(e.name)) for (const m of readFileSync(full, 'utf8').matchAll(/\ba-[a-z0-9]+(?:[_-][a-z0-9]+)*(?:__[a-z0-9-]+)?(?:--[a-z0-9-]+)?/g)) sourceClasses.add(m[0]);
+    else if (/\.(tsx?|ts)$/.test(e.name)) {
+      const src = readFileSync(full, 'utf8');
+      for (const m of src.matchAll(/\ba-[a-z0-9]+(?:[_-][a-z0-9]+)*(?:__[a-z0-9-]+)?(?:--[a-z0-9-]+)?/g)) sourceClasses.add(m[0]);
+      // Template modifiers with a fallback, e.g. `a-icon-badge--${style ?? 'plain'}` → a-icon-badge--plain.
+      for (const m of src.matchAll(/\b(a-[a-z0-9_-]+--)\$\{[^}]*?(?:\?\?|\|\|)\s*'([a-z0-9-]+)'\s*\}/g)) sourceClasses.add(m[1] + m[2]);
+    }
   }
 };
 scan(pkg('renderer-core', 'src'));
