@@ -231,6 +231,24 @@ pixels.
 - Before publishing, read the pre-publish checks: forms without a notification recipient silently email
   nobody.
 
+### 3.19 Size budgets and where CSS lives
+- Custom CSS is capped at 100,000 characters (raw, comments included) and each script at 50,000. Minify
+  custom CSS (strip comments and whitespace outside strings) and prove it unchanged by comparing the parsed
+  rule lists (tinycss2) before saving.
+- CSS that only styles script-built markup (booking flows, filters, lightboxes, contact panels) can ship
+  inside a `necessary` **head** script that appends a `<style>`: it is server-rendered when cookie consent
+  is off, so it applies before first paint, and it is only needed when the scripts run anyway.
+- Replace large CSS/script values through a temporary file input + `file.text()` + SHA-256 check, not by
+  pasting them through tool calls.
+
+### 3.20 Editor parity checklist
+- Published pages carry `.atrium-site` (plus `data-mode`, `data-color-scheme`) on `<body>`; write bridge CSS
+  as `body.atrium-site …` and expect the editor canvas to mirror it (fixed in atrium-contabo dc4ce67).
+- The editor's Live preview (▶) runs `necessary` site scripts with `<html data-atrium-path>` set; every
+  site script's `route()` must honour it.
+- Expect 502s for media for a few minutes while a deploy restarts the API: don't audit screenshots taken
+  then; re-check image status codes first.
+
 ## 4. Gates: the site is not done until all pass, at 1440px and 390px, on every page
 
 1. `compare-typography.mjs`: no family/size/weight/line-height differences left except noted noise.
