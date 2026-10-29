@@ -218,8 +218,9 @@ pixels.
 - Atrium splits photographs and films into separate sections (image gallery + video blocks with players
   and captions). A source gallery that mixes them in one grid (posters, duration badges, a feature tile,
   one lightbox) must be rebuilt as one grid from the existing media URLs.
-- Check `srcset` on the published site: if images ship without responsive variants, full-size originals
-  load everywhere and grids appear empty for seconds — report it as a platform issue.
+- Check `srcset` on the published site (fixed platform-wide in atrium-contabo 45d0f13: images render
+  `srcset`/`sizes` from media variants). If a site still ships without it, full-size originals load
+  everywhere and grids look empty for seconds — check that media variants were generated.
 
 ### 3.18 Editor parity and re-imports
 - Script-built UI is invisible in the editor unless the site uses the editor's live preview; tell the user,
@@ -244,8 +245,17 @@ pixels.
 ### 3.20 Editor parity checklist
 - Published pages carry `.atrium-site` (plus `data-mode`, `data-color-scheme`) on `<body>`; write bridge CSS
   as `body.atrium-site …` and expect the editor canvas to mirror it (fixed in atrium-contabo dc4ce67).
-- The editor's Live preview (▶) runs `necessary` site scripts with `<html data-atrium-path>` set; every
-  site script's `route()` must honour it.
+- Site scripts never run in the editor canvas itself (it is on the admin origin: a script there could act
+  as the logged-in user). Since atrium-contabo 74bc6a9 the canvas copies the page into an opaque-origin
+  sandbox, runs the enabled inline **Necessary** scripts there and mirrors their DOM changes back as inert
+  markup, so edit mode looks like the published page. Contract (Atrium `docs/SITE-SCRIPTS.md`):
+  - scripts see `window.atrium = { editor: true, path }` and `<html data-atrium-editor data-atrium-path>`;
+    `route()` must honour `data-atrium-path` (the canvas URL is `about:srcdoc`);
+  - the sandbox reports `prefers-reduced-motion: reduce`: reveal/hide motion, word splitting, cursors and
+    canvas scenes must stay off then, or the editor shows hidden content;
+  - mark a replacement with `data-atrium-for="<node id>"` so clicking it selects the Atrium node it hides;
+  - inline scripts only (no `src`), and listeners don't carry over: filters/lightboxes are static in the
+    editor — interactivity is checked in Preview.
 - Expect 502s for media for a few minutes while a deploy restarts the API: don't audit screenshots taken
   then; re-check image status codes first.
 
